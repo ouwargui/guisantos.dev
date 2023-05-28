@@ -1,3 +1,4 @@
+import {Footer} from '@/components/footer';
 import {Header} from '@/components/header';
 
 export default function Home() {
@@ -14,13 +15,7 @@ export default function Home() {
           </p>
         </div>
       </main>
-      <footer>
-        <div className="flex flex-col gap-4 py-4">
-          <p className="text-white text-center">
-            This website is a work in progress.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
