@@ -2,6 +2,7 @@ import {Header} from '@/components/header';
 import './globals.css';
 import {Red_Hat_Mono} from 'next/font/google';
 import {Footer} from '@/components/footer';
+import {Analytics} from '@vercel/analytics/react';
 
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 
@@ -21,6 +22,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           {children}
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
