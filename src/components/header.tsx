@@ -9,12 +9,27 @@ export function Header() {
             guisantos.dev
           </span>
         </div>
-        <div className="flex items-center flex-shrink-0 text-white">
-          <span className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">
+        <div className="md:flex items-center gap-4 flex-shrink-0 text-white hidden">
+          <a
+            href="/"
+            className="inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white"
+          >
             Home
-          </span>
+          </a>
+          <a
+            href="/blog"
+            className="inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white"
+          >
+            Blog
+          </a>
+          <a
+            href="/about"
+            className="inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white"
+          >
+            About
+          </a>
         </div>
-        <div className="lg:hidden"></div>
+        <div className="md:hidden"></div>
       </nav>
     </header>
   );

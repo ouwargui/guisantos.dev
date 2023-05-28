@@ -1,5 +1,7 @@
+import {Header} from '@/components/header';
 import './globals.css';
 import {Red_Hat_Mono} from 'next/font/google';
+import {Footer} from '@/components/footer';
 
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 
@@ -14,7 +16,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body
         className={`${redHatMono.className} bg-gradient-to-b from-zinc-800 to-zinc-950`}
       >
-        {children}
+        <div className="container mx-auto min-h-screen flex flex-col items-center justify-between">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
