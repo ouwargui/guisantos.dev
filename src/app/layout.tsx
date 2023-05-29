@@ -1,14 +1,17 @@
-import {Header} from '@/components/header';
 import './globals.css';
-import {Red_Hat_Mono} from 'next/font/google';
-import {Footer} from '@/components/footer';
 import {Analytics} from '@vercel/analytics/react';
+import {Footer} from '@/components/footer';
+import {Header} from '@/components/header';
+import {Metadata} from 'next';
+import {Red_Hat_Mono} from 'next/font/google';
 
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Guilherme Santos - Software Engineer',
   description: "Guilherme's portfolio and blog",
+  themeColor: '#27272a',
+  colorScheme: 'dark',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
