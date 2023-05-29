@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <main className="px-4 flex flex-1 flex-col">
+    <main className="relative px-4 flex flex-1 flex-col">
       <section className="flex flex-col gap-4">
         <h1 className="text-2xl md:text-5xl font-semibold text-white self-center">
           🙋🏻‍♂️ Hello, world!
@@ -11,19 +11,20 @@ export default function Home() {
           I&apos;m Guilherme, a software engineer from Brazil.
         </p>
       </section>
-      <section className="flex justify-between items-center flex-col-reverse md:flex-row">
-        <p>
+      <div className="h-8" />
+      <section className="flex w-full gap-8 md:gap-8 md:max-w-screen-md justify-between items-center flex-col-reverse md:flex-row px-6">
+        <p className="text-justify">
           I&apos;m currently working at IBM as a Software Engineer. I have a
           bachelor&apos;s degree in Computer Science from the Universidade
           Anhembi Morumbi.
         </p>
-        <Image
-          src="https://github.com/ouwargui.png"
-          width={225}
-          height={300}
-          alt="Picture of the author"
-          className="rounded-full"
-        />
+        <div className="w-40 md:w-96 aspect-square relative rounded-full overflow-hidden">
+          <Image
+            src="https://github.com/ouwargui.png"
+            fill
+            alt="Picture of the author"
+          />
+        </div>
       </section>
     </main>
   );
