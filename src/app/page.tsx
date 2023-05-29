@@ -3,16 +3,16 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="relative px-4 flex flex-1 flex-col">
+    <main className="relative px-4 flex flex-1 flex-col gap-16 py-8">
       <section className="flex flex-col gap-4">
         <h1 className="text-3xl md:text-5xl font-semibold text-white self-center">
           🙋🏻‍♂️ Hello, world!
         </h1>
         <h2 className="text-white text-center text-sm md:text-base lg:text-lg">
-          I&apos;m <strong>Guilherme</strong>, a software engineer from Brazil.
+          I&apos;m <span className="accent">Guilherme</span>, a software
+          engineer from Brazil.
         </h2>
       </section>
-      <div className="h-8" />
       <section className="flex w-full gap-8 md:gap-8 md:max-w-screen-md lg:max-w-screen-lg justify-between items-center flex-col-reverse md:flex-row px-6">
         <div className="text-justify text-sm md:text-base lg:text-lg flex flex-col gap-8">
           <p>
@@ -26,7 +26,7 @@ export default function Home() {
             source and doing some contributions. I&apos;ll be posting some of my
             projects here. Stay tuned! 🤓
           </p>
-          <div className="flex gap-4 font-semibold justify-center items-center">
+          <div className="flex gap-4 font-bold justify-center items-center accent">
             <span className="hover:underline">
               <Link target="_blank" href="https://github.com/ouwargui">
                 🐙 Github

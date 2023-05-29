@@ -3,6 +3,7 @@
 import {Menu, Transition} from '@headlessui/react';
 import React, {Fragment} from 'react';
 import Link from 'next/link';
+import {usePathname} from 'next/navigation';
 
 const links = [
   {
@@ -20,6 +21,8 @@ const links = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="w-screen sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between flex-wrap p-6">
@@ -33,7 +36,9 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white"
+              className={`${
+                pathname === link.href ? 'bg-white text-zinc-900' : ''
+              } inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
             >
               {link.label}
             </Link>
