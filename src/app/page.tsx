@@ -16,6 +16,21 @@ const projects = [
   },
 ];
 
+const posts = [
+  {
+    title: 'Personal Website',
+    description:
+      'Learn how to make a personal website with NextJS and TailwindCSS just like this one! In this post I explain how I made this website and how you can make yours too!',
+    href: '/blog/1',
+  },
+  {
+    title: 'How to manage different github accounts seamlessly',
+    description:
+      'Learn how to manage different github accounts seamlessly with GPG keys and folder configurations.',
+    href: '/blog/2',
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative px-4 flex flex-1 flex-col gap-16 py-8 md:max-w-screen-md lg:max-w-screen-lg">
@@ -68,15 +83,36 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col gap-4">
-        <h2 className="text-2xl font-semibold">Projects</h2>
+        <h2 className="text-xl md:text-2xl font-semibold">Projects</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {projects.map((project, index) => (
             <Link href={project.href} key={index.toString()}>
-              <div className="flex w-full h-full border border-white flex-col gap-2 p-4 rounded-xl text-sm hover:scale-95 focus:scale-95 transition-transform">
-                <h2 className="font-semibold text-lg">{project.name}</h2>
-                <span className="text-zinc-500 text-justify">
-                  {project.description}
-                </span>
+              <div className="group relative hover:scale-95 overflow-hidden transition-transform rounded-xl p-[1.5px] items-center flex justify-center">
+                <div className="flex w-full h-full bg-zinc-800 flex-col gap-2 p-4 rounded-xl text-sm md:text-base">
+                  <h2 className="font-semibold text-lg">{project.name}</h2>
+                  <span className="text-zinc-400 text-justify">
+                    {project.description}
+                  </span>
+                </div>
+                <div className="absolute bg-white self-center -z-10 w-[calc(100%+2rem)] aspect-square rounded-full group-hover:bg-gradient-to-br group-hover:from-orange-200 group-hover:to-orange-900 group-hover:animate-[spin_1s_linear_infinite]" />
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="flex flex-col gap-4">
+        <h2 className="text-xl md:text-2xl font-semibold">Latest Posts</h2>
+        <div className="grid gap-4">
+          {posts.map((post, index) => (
+            <Link href={post.href} key={index.toString()}>
+              <div className="group relative hover:scale-95 overflow-hidden transition-transform rounded-xl p-[1.5px] items-center flex justify-center">
+                <div className="flex w-full h-full bg-zinc-800 flex-col gap-2 p-4 rounded-xl text-sm md:text-base">
+                  <h2 className="font-semibold text-lg">{post.title}</h2>
+                  <span className="text-zinc-400 text-justify">
+                    {post.description}
+                  </span>
+                </div>
+                <div className="absolute bg-white self-center -z-10 w-[calc(100%+2rem)] aspect-square rounded-full group-hover:bg-gradient-to-br group-hover:from-orange-200 group-hover:to-orange-900 group-hover:animate-[spin_1s_linear_infinite]" />
               </div>
             </Link>
           ))}
