@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export function Header() {
@@ -10,24 +11,24 @@ export function Header() {
           </span>
         </div>
         <div className="md:flex items-center gap-4 flex-shrink-0 text-white hidden">
-          <a
+          <Link
             href="/"
             className="inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white"
           >
             Home
-          </a>
-          <a
+          </Link>
+          <Link
             href="/blog"
             className="inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white"
           >
             Blog
-          </a>
-          <a
+          </Link>
+          <Link
             href="/about"
             className="inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white"
           >
             About
-          </a>
+          </Link>
         </div>
         <div className="md:hidden"></div>
       </nav>
