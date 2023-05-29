@@ -1,9 +1,72 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+const projects = [
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+  {
+    name: 'Next.js',
+    description: 'The React Framework for Production',
+    href: 'https://nextjs.org',
+  },
+];
+
 export default function Home() {
   return (
-    <main className="relative px-4 flex flex-1 flex-col gap-16 py-8">
+    <main className="relative px-4 flex flex-1 flex-col gap-16 py-8 md:max-w-screen-md lg:max-w-screen-lg">
       <section className="flex flex-col gap-4">
         <h1 className="text-3xl md:text-5xl font-semibold text-white self-center">
           🙋🏻‍♂️ Hello, world!
@@ -13,7 +76,7 @@ export default function Home() {
           engineer from Brazil.
         </h2>
       </section>
-      <section className="flex w-full gap-8 md:gap-8 md:max-w-screen-md lg:max-w-screen-lg justify-between items-center flex-col-reverse md:flex-row px-6">
+      <section className="flex w-full gap-8 md:gap-8 justify-between items-center flex-col-reverse md:flex-row">
         <div className="text-justify text-sm md:text-base lg:text-lg flex flex-col gap-8">
           <p>
             I&apos;m a Software Engineer at IBM. I have a bachelor&apos;s degree
@@ -50,6 +113,24 @@ export default function Home() {
             fill
             alt="Picture of the author"
           />
+        </div>
+      </section>
+      <section className="flex flex-col gap-4">
+        <h2 className="text-2xl font-semibold">Projects</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <div
+              key={index.toString()}
+              className="flex w-full border border-white flex-col gap-2 p-4 rounded-xl text-sm hover:scale-95 transition-transform"
+            >
+              <Link href={project.href}>
+                <h2 className="font-semibold text-lg">{project.name}</h2>
+                <span className="text-zinc-500 text-justify">
+                  {project.description}
+                </span>
+              </Link>
+            </div>
+          ))}
         </div>
       </section>
     </main>
