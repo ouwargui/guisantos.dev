@@ -3,64 +3,16 @@ import Link from 'next/link';
 
 const projects = [
   {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
+    name: 'Personal Website',
+    description:
+      'Source code for this website! Made with NextJS app router and TailwindCSS',
+    href: 'https://github.com/ouwargui/guisantos.dev',
   },
   {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
-  },
-  {
-    name: 'Next.js',
-    description: 'The React Framework for Production',
-    href: 'https://nextjs.org',
+    name: 'Sigma Audibooks',
+    description:
+      'A Expo + React Native + trpc monorepo with a server and a for audiobooks',
+    href: 'https://github.com/ouwargui/sigma-audiobooks-monorepo',
   },
 ];
 
@@ -119,17 +71,14 @@ export default function Home() {
         <h2 className="text-2xl font-semibold">Projects</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {projects.map((project, index) => (
-            <div
-              key={index.toString()}
-              className="flex w-full border border-white flex-col gap-2 p-4 rounded-xl text-sm hover:scale-95 transition-transform"
-            >
-              <Link href={project.href}>
+            <Link href={project.href} key={index.toString()}>
+              <div className="flex w-full h-full border border-white flex-col gap-2 p-4 rounded-xl text-sm hover:scale-95 focus:scale-95 transition-transform">
                 <h2 className="font-semibold text-lg">{project.name}</h2>
                 <span className="text-zinc-500 text-justify">
                   {project.description}
                 </span>
-              </Link>
-            </div>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
