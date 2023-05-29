@@ -9,6 +9,7 @@
       {
         "endOfLine": "auto"
       }
-    ]
+    ],
+    "sort-imports": "error"
   }
 }
