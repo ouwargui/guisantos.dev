@@ -16,8 +16,8 @@ const markdown = `
 
 export default function Blog() {
   return (
-    <main className="flex flex-1 w-full justify-center md:max-w-screen-md lg:max-w-screen-lg py-8">
-      <article className="prose prose-h1:text-center prose-strong:accent prose-a:accent prose-a: prose-invert">
+    <main className="flex flex-1 w-full justify-center md:max-w-screen-md lg:max-w-screen-lg py-8 px-4">
+      <article className="prose prose-h1:text-center prose-strong:accent prose-a:accent prose-invert">
         <Markdown markdown={markdown} />
       </article>
     </main>
