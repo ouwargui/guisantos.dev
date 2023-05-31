@@ -1,3 +1,4 @@
+import {Card} from '@/components/card';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -94,15 +95,7 @@ export default function Home() {
               href={project.href}
               key={index.toString()}
             >
-              <div className="group relative hover:scale-95 overflow-hidden transition-transform rounded-xl p-[1.5px] items-center flex justify-center">
-                <div className="flex w-full h-full bg-zinc-800 flex-col gap-2 p-4 rounded-xl text-sm md:text-base">
-                  <h2 className="font-semibold text-lg">{project.name}</h2>
-                  <span className="text-zinc-400 text-justify">
-                    {project.description}
-                  </span>
-                </div>
-                <div className="absolute bg-white self-center -z-10 w-[calc(100%+2rem)] aspect-square rounded-full group-hover:bg-gradient-to-br group-hover:from-orange-200 group-hover:to-orange-900 group-hover:animate-[spin_1s_linear_infinite]" />
-              </div>
+              <Card title={project.name} description={project.description} />
             </a>
           ))}
         </div>
@@ -112,15 +105,7 @@ export default function Home() {
         <div className="grid gap-4">
           {posts.map((post, index) => (
             <Link href={post.href} key={index.toString()}>
-              <div className="group relative hover:scale-95 overflow-hidden transition-transform rounded-xl p-[1.5px] items-center flex justify-center">
-                <div className="flex w-full h-full bg-zinc-800 flex-col gap-2 p-4 rounded-xl text-sm md:text-base">
-                  <h2 className="font-semibold text-lg">{post.title}</h2>
-                  <span className="text-zinc-400 text-justify">
-                    {post.description}
-                  </span>
-                </div>
-                <div className="absolute bg-white self-center -z-10 w-[calc(100%+2rem)] aspect-square rounded-full group-hover:bg-gradient-to-br group-hover:from-orange-200 group-hover:to-orange-900 group-hover:animate-[spin_1s_linear_infinite]" />
-              </div>
+              <Card title={post.title} description={post.description} />
             </Link>
           ))}
         </div>
