@@ -1,8 +1,6 @@
+import {Post, getPostBySlug} from '@/utils/posts';
 import {Markdown} from '@/components/markdown';
 import React from 'react';
-import fs from 'fs/promises';
-import {join} from 'path';
-import matter from 'gray-matter';
 
 type Props = {
   params: {
@@ -10,44 +8,8 @@ type Props = {
   };
 };
 
-const postsDirectory = join(process.cwd(), 'src', 'posts');
-
-async function getPostBySlug<T>(slug: string, fields: string[]): Promise<T> {
-  const file = await fs.readFile(join(postsDirectory, `${slug}.md`), 'utf8');
-  const {data, content} = matter(file);
-
-  const items: {[key: string]: unknown} = {};
-
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = slug;
-    }
-
-    if (field === 'content') {
-      items[field] = content;
-    }
-
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
-
-  return items as T;
-}
-
-type Post = {
-  slug: string;
-  title: string;
-  date: string;
-  content: string;
-  timeToRead: number;
-  author: {
-    name: string;
-  };
-};
-
 export default async function BlogPost({params}: Props) {
-  const markdown = await getPostBySlug<Post>(params.slug, [
+  const markdown = await getPostBySlug(params.slug, [
     'author',
     'content',
     'date',

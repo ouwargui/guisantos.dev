@@ -1,3 +1,4 @@
+import {Post, getLastPosts} from '@/utils/posts';
 import {Markdown} from '@/components/markdown';
 import React from 'react';
 
@@ -14,12 +15,18 @@ const markdown = `
   [This is a link](https://www.google.com)  
 `;
 
-export default function Blog() {
+export default async function Blog() {
+  const posts = await getLastPosts(3, ['excerpt', 'date', 'slug', 'title']);
+
   return (
     <main className="flex flex-1 w-full justify-center md:max-w-screen-md lg:max-w-screen-lg py-8 px-4">
-      <article className="prose prose-h1:text-center prose-strong:accent prose-a:accent prose-invert">
-        <Markdown markdown={markdown} />
-      </article>
+      {posts.map((post) => (
+        <div key={post.slug}>
+          <span>{post.title}</span>
+          <span>{post.excerpt}</span>
+          <span>{post.date}</span>
+        </div>
+      ))}
     </main>
   );
 }
