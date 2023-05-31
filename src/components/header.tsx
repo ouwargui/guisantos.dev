@@ -24,7 +24,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="w-screen sticky z-10 top-0 backdrop-blur-lg">
+    <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between flex-wrap p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <span className="font-semibold text-xl tracking-tight">
