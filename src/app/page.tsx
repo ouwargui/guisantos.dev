@@ -18,16 +18,9 @@ const projects = [
 
 const posts = [
   {
-    title: 'Personal Website',
-    description:
-      'Learn how to make a personal website with NextJS and TailwindCSS just like this one! In this post I explain how I made this website and how you can make yours too!',
-    href: '/blog/1',
-  },
-  {
-    title: 'How to manage different github accounts seamlessly',
-    description:
-      'Learn how to manage different github accounts seamlessly with GPG keys and folder configurations.',
-    href: '/blog/2',
+    title: 'My first blog post',
+    description: 'An overview of me and my blog',
+    href: '/blog/hello-world',
   },
 ];
 
