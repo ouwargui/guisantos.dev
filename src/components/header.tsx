@@ -23,6 +23,14 @@ const links = [
 export function Header() {
   const pathname = usePathname();
 
+  const getActiveLinkClass = (href: string) => {
+    if (href === '/') {
+      return pathname === href ? 'bg-white text-zinc-900' : '';
+    }
+
+    return pathname.startsWith(href) ? 'bg-white text-zinc-900' : '';
+  };
+
   return (
     <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between flex-wrap p-6">
@@ -36,9 +44,9 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className={`${
-                pathname === link.href ? 'bg-white text-zinc-900' : ''
-              } inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
+              className={`${getActiveLinkClass(
+                link.href,
+              )} inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
             >
               {link.label}
             </Link>
