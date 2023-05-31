@@ -35,9 +35,11 @@ export function Header() {
     <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between flex-wrap p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <span className="font-semibold text-xl tracking-tight">
-            guisantos.dev
-          </span>
+          <Link href="/">
+            <span className="font-semibold text-xl tracking-tight">
+              guisantos.dev
+            </span>
+          </Link>
         </div>
         <div className="md:flex items-center gap-4 flex-shrink-0 text-white hidden">
           {links.map((link) => (
