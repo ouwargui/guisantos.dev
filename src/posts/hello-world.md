@@ -3,7 +3,7 @@ title: 'My first blog post'
 excerpt: 'On this first post I will talk a little bit about me, why I decided to create this blog and what you can expect from it.'
 coverImage: '/assets/blog/hello-world/cover.jpg'
 date: '2023-05-31T03:27:00.892Z'
-timeToRead: 11
+timeToRead: 2
 author:
   name: 'Guilherme Santos'
   picture: 'https://github.com/ouwargui.png'
