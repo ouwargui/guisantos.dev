@@ -1,6 +1,6 @@
-import {Post, getPostBySlug} from '@/utils/posts';
 import {Markdown} from '@/components/markdown';
 import React from 'react';
+import {getPostBySlug} from '@/utils/posts';
 import {notFound} from 'next/navigation';
 
 type Props = {

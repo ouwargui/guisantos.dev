@@ -99,7 +99,7 @@ export default async function Home() {
         <h2 className="text-xl md:text-2xl font-semibold">Latest Posts</h2>
         <div className="grid gap-4">
           {posts.map((post, index) => (
-            <Link href={`/blog/${post.slug}.md`} key={index.toString()}>
+            <Link href={`/blog/${post.slug}`} key={index.toString()}>
               <Card
                 title={post.title}
                 description={post.excerpt}
