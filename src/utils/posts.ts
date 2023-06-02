@@ -20,6 +20,13 @@ function isPostDefined(post?: Post): post is Post {
   return post !== undefined;
 }
 
+function sortByDate(a: Post, b: Post): number {
+  const dateA = new Date(a.date);
+  const dateB = new Date(b.date);
+
+  return dateB.getTime() - dateA.getTime();
+}
+
 export async function getLastPosts(
   limit: number,
   fields: Array<keyof Post>,
@@ -34,7 +41,7 @@ export async function getLastPosts(
   });
 
   const allPosts = await Promise.all(posts);
-  const postsFiltered = allPosts.filter(isPostDefined);
+  const postsFiltered = allPosts.filter(isPostDefined).sort(sortByDate);
   return postsFiltered.slice(0, limit);
 }
 

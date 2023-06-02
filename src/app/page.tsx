@@ -1,6 +1,7 @@
 import {Card} from '@/components/card';
 import Image from 'next/image';
 import Link from 'next/link';
+import {getLastPosts} from '@/utils/posts';
 
 const projects = [
   {
@@ -17,15 +18,9 @@ const projects = [
   },
 ];
 
-const posts = [
-  {
-    title: 'My first blog post',
-    description: 'An overview of me and my blog',
-    href: '/blog/hello-world',
-  },
-];
+export default async function Home() {
+  const posts = await getLastPosts(3, ['excerpt', 'date', 'slug', 'title']);
 
-export default function Home() {
   return (
     <main className="relative px-4 flex flex-1 flex-col gap-16 py-8 md:max-w-screen-md lg:max-w-screen-lg text-white">
       <section className="flex flex-col gap-4">
@@ -104,8 +99,12 @@ export default function Home() {
         <h2 className="text-xl md:text-2xl font-semibold">Latest Posts</h2>
         <div className="grid gap-4">
           {posts.map((post, index) => (
-            <Link href={post.href} key={index.toString()}>
-              <Card title={post.title} description={post.description} />
+            <Link href={`/blog/${post.slug}.md`} key={index.toString()}>
+              <Card
+                title={post.title}
+                description={post.excerpt}
+                date={post.date}
+              />
             </Link>
           ))}
         </div>
