@@ -4,9 +4,9 @@ import React from 'react';
 export default function NotFound() {
   return (
     <NotFoundDetails
-      description="The page you are looking for does not exist."
-      href="/"
-      buttonText="Go back to home"
+      description="The post you are looking for does not exist."
+      href="/blog"
+      buttonText="Go back to posts"
     />
   );
 }

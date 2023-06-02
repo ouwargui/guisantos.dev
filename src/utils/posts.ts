@@ -16,6 +16,10 @@ export type Post = {
 
 const postsDirectory = join(process.cwd(), 'src', 'posts');
 
+function isPostDefined(post?: Post): post is Post {
+  return post !== undefined;
+}
+
 export async function getLastPosts(
   limit: number,
   fields: Array<keyof Post>,
@@ -23,35 +27,44 @@ export async function getLastPosts(
   const files = await fs.readdir(postsDirectory);
   const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
-    return getPostBySlug(slug, fields);
+    const post = getPostBySlug(slug, fields);
+    if (post) {
+      return post;
+    }
   });
 
   const allPosts = await Promise.all(posts);
-  return allPosts.slice(0, limit);
+  const postsFiltered = allPosts.filter(isPostDefined);
+  return postsFiltered.slice(0, limit);
 }
 
 export async function getPostBySlug(
   slug: string,
   fields: Array<keyof Post>,
-): Promise<Post> {
-  const file = await fs.readFile(join(postsDirectory, `${slug}.md`), 'utf8');
-  const {data, content} = matter(file);
+): Promise<Post | undefined> {
+  try {
+    const file = await fs.readFile(join(postsDirectory, `${slug}.md`), 'utf8');
+    const {data, content} = matter(file);
 
-  const items: {[key: string]: unknown} = {};
+    const items: {[key: string]: unknown} = {};
 
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = slug;
-    }
+    fields.forEach((field) => {
+      if (field === 'slug') {
+        items[field] = slug;
+      }
 
-    if (field === 'content') {
-      items[field] = content;
-    }
+      if (field === 'content') {
+        items[field] = content;
+      }
 
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
+      if (data[field]) {
+        items[field] = data[field];
+      }
+    });
 
-  return items as Post;
+    return items as Post;
+  } catch (error) {
+    console.error(error);
+    return;
+  }
 }

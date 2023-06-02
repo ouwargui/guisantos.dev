@@ -1,6 +1,7 @@
 import {Post, getPostBySlug} from '@/utils/posts';
 import {Markdown} from '@/components/markdown';
 import React from 'react';
+import {notFound} from 'next/navigation';
 
 type Props = {
   params: {
@@ -18,10 +19,16 @@ export default async function BlogPost({params}: Props) {
     'timeToRead',
   ]);
 
+  if (!markdown) {
+    notFound();
+  }
+
   return (
     <main className="flex flex-col gap-16 flex-1 w-full md:max-w-screen-md lg:max-w-screen-lg py-8 px-4">
       <header className="flex flex-col text-sm md:text-base w-full gap-1">
-        <h1 className="text-2xl md:text-3xl font-bold">{markdown.title}</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-white">
+          {markdown.title}
+        </h1>
         <div className="flex gap-2 text-zinc-400">
           <span>
             Published on&nbsp;
