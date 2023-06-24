@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, {useState} from 'react';
 import {ReactMarkdown} from 'react-markdown/lib/react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import {Tooltip} from 'react-tooltip';
 import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 type Props = {
@@ -10,15 +11,42 @@ type Props = {
 };
 
 export function Markdown({markdown}: Props) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async (text: string) => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
+  };
+
   return (
     <ReactMarkdown
       components={{
+        pre({children, ...props}) {
+          return (
+            <pre {...props} className="overflow-visible">
+              {children}
+            </pre>
+          );
+        },
         code({node, inline, className, children, ...props}) {
           const match = /language-(\w+)/.exec(className ?? '');
           return !inline && match ? (
             <div className="relative">
-              <div className="absolute right-0 top-0">
-                <button className="mr-2 mt-2 text-white">
+              <div className="absolute right-0 top-0 group flex flex-col items-center">
+                <button
+                  className="mr-2 mt-2 text-white"
+                  onClick={() => {
+                    handleCopy(String(children));
+                  }}
+                  data-tooltip-id="copy-tooltip"
+                  data-tooltip-content={
+                    copied ? 'Copied!' : 'Copy to clipboard'
+                  }
+                  data-tooltip-place="top"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -34,6 +62,10 @@ export function Markdown({markdown}: Props) {
                     />
                   </svg>
                 </button>
+                <Tooltip
+                  id="copy-tooltip"
+                  style={{backgroundColor: 'white', color: 'rgb(24 24 27)'}}
+                />
               </div>
               <SyntaxHighlighter {...props} style={dracula} language={match[1]}>
                 {String(children).replace(/\n$/, '')}
