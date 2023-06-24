@@ -13,7 +13,7 @@ const projects = [
   {
     name: 'Sigma Audiobooks',
     description:
-      'A Expo + React Native + trpc monorepo with a server and a for audiobooks',
+      'A Expo + React Native + trpc monorepo with a server and an app for audiobooks',
     href: 'https://github.com/ouwargui/sigma-audiobooks-monorepo',
   },
 ];
