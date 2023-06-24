@@ -40,7 +40,7 @@ export default async function BlogPost({params}: Props) {
           <span>{markdown.timeToRead} min read</span>
         </div>
       </header>
-      <article className="w-full prose prose-sm prose-p:text-justify md:prose-base !max-w-full prose-h1:text-center prose-strong:accent prose-a:accent prose-invert">
+      <article className="w-full prose prose-sm prose-p:text-justify md:prose-base !max-w-full prose-h1:text-center prose-strong:accent prose-a:accent prose-code:text-xs prose-code:md:text-sm prose-invert">
         <Markdown markdown={markdown.content} />
       </article>
     </main>
