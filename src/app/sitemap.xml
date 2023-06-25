@@ -1,0 +1,22 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://guisantos.dev</loc>
+    <lastmod>2023-06-24T15:02:24.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guisantos.dev/about</loc>
+    <lastmod>2023-06-24T15:02:24.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guisantos.dev/blog</loc>
+    <lastmod>2023-06-24T15:02:24.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guisantos.dev/blog/hello-world</loc>
+    <lastmod>2023-06-24T15:02:24.021Z</lastmod>
+  </url>
+  <url>
+    <loc>https://guisantos.dev/blog/how-to-use-multiple-git-accounts</loc>
+    <lastmod>2023-06-24T15:02:24.021Z</lastmod>
+  </url>
+</urlset>
