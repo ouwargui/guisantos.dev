@@ -52,7 +52,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       nocache: false,
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: markdown.title,
       description: markdown.excerpt,
       creator: '@eoqguih',
