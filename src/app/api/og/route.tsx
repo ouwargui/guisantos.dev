@@ -29,7 +29,7 @@ export async function GET(request: Request) {
     const hasWidth = searchParams.has('width');
     const hasHeight = searchParams.has('height');
 
-    const width = hasWidth ? Number(searchParams.get('width')) : 1200;
+    const width = hasWidth ? Number(searchParams.get('width')) : 800;
     const height = hasHeight ? Number(searchParams.get('height')) : 600;
 
     return new ImageResponse(
