@@ -3,10 +3,13 @@ import React from 'react';
 
 export default function NotFound() {
   return (
-    <NotFoundDetails
-      description="The page you are looking for does not exist."
-      href="/"
-      buttonText="Go back to home"
-    />
+    <>
+      <title>Page not found | Guilherme Santos - Software Engineer</title>
+      <NotFoundDetails
+        description="The page you are looking for does not exist."
+        href="/"
+        buttonText="Go back to home"
+      />
+    </>
   );
 }

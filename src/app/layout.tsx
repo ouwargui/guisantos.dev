@@ -8,7 +8,10 @@ import {Red_Hat_Mono} from 'next/font/google';
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 
 export const metadata: Metadata = {
-  title: 'Guilherme Santos - Software Engineer',
+  title: {
+    default: 'Guilherme Santos - Software Engineer',
+    template: '%s | Guilherme Santos - Software Engineer',
+  },
   description: "Guilherme's portfolio and blog",
   themeColor: '#27272a',
   colorScheme: 'dark',
