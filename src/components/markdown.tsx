@@ -46,6 +46,7 @@ export function Markdown({markdown}: Props) {
                     copied ? 'Copied!' : 'Copy to clipboard'
                   }
                   data-tooltip-place="top"
+                  aria-label={copied ? 'Copied!' : 'Copy to clipboard'}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
