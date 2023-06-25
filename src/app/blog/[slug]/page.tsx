@@ -57,7 +57,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       description: markdown.excerpt,
       creator: '@eoqguih',
       images: [
-        `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}`,
+        `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}&width=1200&height=630`,
       ],
     },
   };
