@@ -15,6 +15,29 @@ export const metadata: Metadata = {
   description: "Guilherme's portfolio and blog",
   themeColor: '#27272a',
   colorScheme: 'dark',
+  creator: 'Guilherme Santos',
+  publisher: 'Guilherme Santos',
+  openGraph: {
+    title: 'Guilherme Santos - Software Engineer',
+    description: "Guilherme's portfolio and blog",
+    url: 'https://guisantos.dev',
+    siteName: 'Guilherme Santos - Software Engineer',
+    type: 'website',
+    locale: 'en_US',
+    images: ['https://github.com/ouwargui.png'],
+  },
+  robots: {
+    follow: true,
+    index: true,
+    nocache: false,
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Guilherme Santos - Software Engineer',
+    description: "Guilherme's portfolio and blog",
+    creator: '@eoqguih',
+    images: ['https://github.com/ouwargui.png'],
+  },
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

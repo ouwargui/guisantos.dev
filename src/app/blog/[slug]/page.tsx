@@ -1,4 +1,5 @@
 import {Markdown} from '@/components/markdown';
+import {Metadata} from 'next';
 import React from 'react';
 import {getPostBySlug} from '@/utils/posts';
 import {notFound} from 'next/navigation';
@@ -8,6 +9,63 @@ type Props = {
     slug: string;
   };
 };
+
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const markdown = await getPostBySlug(params.slug, [
+    'title',
+    'excerpt',
+    'timeToRead',
+    'date',
+    'author',
+  ]);
+
+  if (!markdown) {
+    return {};
+  }
+
+  return {
+    title: markdown.title,
+    description: markdown.excerpt,
+    creator: markdown.author.name,
+    publisher: markdown.author.name,
+    authors: [{name: markdown.author.name}],
+    openGraph: {
+      title: markdown.title,
+      description: markdown.excerpt,
+      url: `https://guisantos.dev/blog/${params.slug}`,
+      siteName: 'Guilherme Santos - Software Engineer',
+      type: 'article',
+      locale: 'en_US',
+      authors: [markdown.author.name],
+      publishedTime: new Date(markdown.date).toISOString(),
+      images: [
+        {
+          url: 'https://guisantos.dev/favicon.png',
+          width: 512,
+          height: 512,
+          alt: 'Guilherme Santos - Software Engineer',
+        },
+      ],
+    },
+    robots: {
+      follow: true,
+      index: true,
+      nocache: false,
+    },
+    icons: {
+      icon: '/favicon.png',
+      apple: '/apple-favicon.png',
+      shortcut: '/favicon.png',
+    },
+    twitter: {
+      card: 'summary',
+      title: markdown.title,
+      description: markdown.excerpt,
+      creator: '@eoqguih',
+      images: ['https://guisantos.dev/favicon.png'],
+    },
+  };
+}
 
 export default async function BlogPost({params}: Props) {
   const markdown = await getPostBySlug(params.slug, [
