@@ -23,6 +23,10 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     return {};
   }
 
+  const formattedDate = new Date(markdown.date).toLocaleDateString('en-US', {
+    dateStyle: 'long',
+  });
+
   return {
     title: markdown.title,
     description: markdown.excerpt,
@@ -38,7 +42,9 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       locale: 'en_US',
       authors: [markdown.author.name],
       publishedTime: new Date(markdown.date).toISOString(),
-      images: ['https://github.com/ouwargui.png'],
+      images: [
+        `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}`,
+      ],
     },
     robots: {
       follow: true,
@@ -50,7 +56,9 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       title: markdown.title,
       description: markdown.excerpt,
       creator: '@eoqguih',
-      images: ['https://github.com/ouwargui.png'],
+      images: [
+        `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}`,
+      ],
     },
   };
 }
