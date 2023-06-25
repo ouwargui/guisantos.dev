@@ -38,31 +38,19 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       locale: 'en_US',
       authors: [markdown.author.name],
       publishedTime: new Date(markdown.date).toISOString(),
-      images: [
-        {
-          url: 'https://guisantos.dev/favicon.png',
-          width: 512,
-          height: 512,
-          alt: 'Guilherme Santos - Software Engineer',
-        },
-      ],
+      images: ['https://github.com/ouwargui.png'],
     },
     robots: {
       follow: true,
       index: true,
       nocache: false,
     },
-    icons: {
-      icon: '/favicon.png',
-      apple: '/apple-favicon.png',
-      shortcut: '/favicon.png',
-    },
     twitter: {
       card: 'summary',
       title: markdown.title,
       description: markdown.excerpt,
       creator: '@eoqguih',
-      images: ['https://guisantos.dev/favicon.png'],
+      images: ['https://github.com/ouwargui.png'],
     },
   };
 }
