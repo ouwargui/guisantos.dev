@@ -43,7 +43,16 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       authors: [markdown.author.name],
       publishedTime: new Date(markdown.date).toISOString(),
       images: [
-        `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}`,
+        {
+          url: `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}&width=800&height=600`,
+          width: 800,
+          height: 600,
+        },
+        {
+          url: `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}&width=1200&height=630`,
+          width: 1200,
+          height: 630,
+        },
       ],
     },
     robots: {
@@ -57,7 +66,11 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       description: markdown.excerpt,
       creator: '@eoqguih',
       images: [
-        `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}&width=1200&height=630`,
+        {
+          url: `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}&width=1200&height=630`,
+          width: 1200,
+          height: 630,
+        },
       ],
     },
   };
