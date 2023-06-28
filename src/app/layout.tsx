@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     default: 'Guilherme Santos - Software Engineer',
     template: '%s | Guilherme Santos - Software Engineer',
   },
+  metadataBase: new URL('https://guisantos.dev'),
   description: "Guilherme's portfolio and blog",
   themeColor: '#27272a',
   colorScheme: 'dark',
