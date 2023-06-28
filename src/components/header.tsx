@@ -3,6 +3,7 @@
 import {Menu, Transition} from '@headlessui/react';
 import React, {Fragment} from 'react';
 import Link from 'next/link';
+import {motion} from 'framer-motion';
 import {usePathname} from 'next/navigation';
 
 const links = [
@@ -31,6 +32,14 @@ export function Header() {
     return pathname.startsWith(href) ? 'bg-white text-zinc-900' : '';
   };
 
+  const isActiveLink = (href: string) => {
+    if (href === '/') {
+      return pathname === href;
+    }
+
+    return pathname.startsWith(href);
+  };
+
   return (
     <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between flex-wrap p-6">
@@ -41,16 +50,22 @@ export function Header() {
             </span>
           </Link>
         </div>
-        <div className="md:flex items-center gap-4 flex-shrink-0 text-white hidden">
+        <div className="md:flex items-center gap-4 flex-shrink-0 hidden">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`${getActiveLinkClass(
-                link.href,
-              )} inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
+              className="inline-block relative font-semibold text-base px-4 py-2 leading-none rounded text-white hover:text-white/50 transition-colors"
             >
-              {link.label}
+              {isActiveLink(link.href) && (
+                <motion.div
+                  layoutId="active-tab"
+                  className="absolute inset-0 bg-white rounded"
+                />
+              )}
+              <span className="relative z-10 mix-blend-exclusion">
+                {link.label}
+              </span>
             </Link>
           ))}
         </div>
