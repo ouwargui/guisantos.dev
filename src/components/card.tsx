@@ -21,7 +21,6 @@ export function Card({title, description, date}: Props) {
           </span>
         )}
       </div>
-      <div className="absolute bg-white self-center -z-10 w-[calc(100%+2rem)] aspect-square rounded-full group-hover:bg-gradient-to-br group-hover:from-orange-200 group-hover:to-orange-900 group-hover:animate-[spin_1s_linear_infinite]" />
     </div>
   );
 }
