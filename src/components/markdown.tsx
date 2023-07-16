@@ -27,6 +27,13 @@ export function Markdown({markdown}: Props) {
         pre({children, ...props}) {
           return (
             <pre {...props} className="overflow-visible">
+              <div className="flex justify-between mb-2">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-red-500 rounded-full mr-2" />
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2" />
+                  <div className="w-2 h-2 bg-green-500 rounded-full" />
+                </div>
+              </div>
               {children}
             </pre>
           );
@@ -68,7 +75,12 @@ export function Markdown({markdown}: Props) {
                   style={{backgroundColor: 'white', color: 'rgb(24 24 27)'}}
                 />
               </div>
-              <SyntaxHighlighter {...props} style={dracula} language={match[1]}>
+              <SyntaxHighlighter
+                {...props}
+                style={dracula}
+                language={match[1]}
+                showLineNumbers
+              >
                 {String(children).replace(/\n$/, '')}
               </SyntaxHighlighter>
             </div>
