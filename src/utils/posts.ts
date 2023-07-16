@@ -14,7 +14,7 @@ export type Post = {
   };
 };
 
-const postsDirectory = join(process.cwd(), 'src', 'posts');
+const POSTS_DIRECTORY = join(process.cwd(), 'src', 'posts');
 
 function isPostDefined(post?: Post): post is Post {
   return post !== undefined;
@@ -31,7 +31,7 @@ export async function getLastPosts(
   limit: number,
   fields: Array<keyof Post>,
 ): Promise<Post[]> {
-  const files = await fs.readdir(postsDirectory);
+  const files = await fs.readdir(POSTS_DIRECTORY);
   const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
     const post = getPostBySlug(slug, fields);
@@ -50,7 +50,7 @@ export async function getPostBySlug(
   fields: Array<keyof Post>,
 ): Promise<Post | undefined> {
   try {
-    const file = await fs.readFile(join(postsDirectory, `${slug}.md`), 'utf8');
+    const file = await fs.readFile(join(POSTS_DIRECTORY, `${slug}.md`), 'utf8');
     const {data, content} = matter(file);
 
     const items: {[key: string]: unknown} = {};
@@ -74,4 +74,25 @@ export async function getPostBySlug(
     console.error(error);
     return;
   }
+}
+
+export async function searchPostsByName(
+  name: string | string[],
+  fields: Array<keyof Post>,
+): Promise<Post[]> {
+  const postName = Array.isArray(name) ? name[0] : name;
+  const files = await fs.readdir(POSTS_DIRECTORY);
+  const posts = files.map((filename) => {
+    const slug = filename.replace('.md', '');
+    const post = getPostBySlug(slug, fields);
+    if (post) {
+      return post;
+    }
+  });
+
+  const allPosts = await Promise.all(posts);
+  const postsFiltered = allPosts.filter(isPostDefined).sort(sortByDate);
+  return postsFiltered.filter((post) =>
+    post.title.toLowerCase().includes(postName.toLowerCase()),
+  );
 }
