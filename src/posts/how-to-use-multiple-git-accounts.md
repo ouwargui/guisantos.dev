@@ -11,14 +11,14 @@ ogImage:
   url: '/assets/blog/hello-world/cover.jpg'
 ---
 
-Have you ever had to use multiple git accounts on the same machine? If so, you know how annoying it is to have to change the git config every time you want to push to a different account. In this post I will show you how to use multiple git accounts that will be used automatically depending on the directory you are in.
+Have you ever had to use multiple git accounts on the same machine? If so, you know how annoying it is to have to change the git config every time you want to push to a different account. In this post, I will show you how to use multiple git accounts that will be used automatically depending on the directory you are in.
 
-First let's review the requirements to follow this tutorial
+First, let's review the requirements to follow this tutorial
 
 ## Requirements
 
 - Git installed on your machine
-- UNIX based system (I don't know if this works on Windows, but give it a try and tell me!)
+- UNIX-like system (I don't know if this works on Windows, but give it a try and tell me!)
 
 ## Step 1 - Create a new SSH key
 
@@ -38,7 +38,7 @@ After that, you will be asked to enter a passphrase. You can leave it blank if y
 
 ```text
 Enter passphrase (empty for no passphrase): [Type a passphrase]
-Enter same passphrase again: [Type passphrase again]
+Enter the same passphrase again: [Type passphrase again]
 ```
 
 ## Step 2 - Add the SSH key to your GitHub account
@@ -52,11 +52,11 @@ $ pbcopy < ~/.ssh/id_personal.pub
 
 Now go to your GitHub account settings and click on the "New SSH key" button. Enter a name for the key and paste the key you copied in the previous step.
 
-## Step 3 - Create a SSH config file
+## Step 3 - Create an SSH config file
 
-Now that you have created your SSH keys and added them to your GitHub account, you need to create a SSH config file to tell your machine which key to use for each account. To do this, run the following command in your terminal:
+Now that you have created your SSH keys and added them to your GitHub account, you need to create an SSH config file to tell your machine which key to use for each account. To do this, run the following command in your terminal:
 
-If you already have a SSH config file, you can skip this step.
+If you already have an SSH config file, you can skip this step.
 
 ```bash
 $ touch ~/.ssh/config
@@ -140,4 +140,4 @@ If everything is working properly, you should see the email you used in the git 
 
 ## Conclusion
 
-In this post I showed you how to use multiple git accounts on the same machine. I hope you enjoyed it and if you have any questions, feel free to reach out to me on [Twitter](https://twitter.com/eoqguih) or [Email](mailto:me@guisantos.dev)
+In this post, I showed you how to use multiple git accounts on the same machine. I hope you enjoyed it and if you have any questions, feel free to reach out to me on [Twitter](https://twitter.com/eoqguih) or [Email](mailto:me@guisantos.dev)
