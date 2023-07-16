@@ -80,50 +80,30 @@ export default function About() {
         </p>
         <ul className="list-disc list-inside flex flex-col text-justify gap-1 text-sm md:text-base lg:text-lg">
           <li>
-            <a
-              className="hover:underline accent"
-              href="https://github.com/nodejs/nodejs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Hyperlink href="https://github.com/nodejs/nodejs.org">
               Node.js
-            </a>
+            </Hyperlink>
             : I helped to translate the new Node.js website to Brazilian
             portuguese with more than <span className="font-bold">1900</span>{' '}
             words translated.
           </li>
           <li>
-            <a
-              className="hover:underline accent"
-              href="https://github.com/calcom/cal.com/pull/8978"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Hyperlink href="https://github.com/calcom/cal.com/pull/8978">
               Cal.com
-            </a>
+            </Hyperlink>
             : Fixed a visual bug on the website, all items on the sidebar
             wasn&apos;t wrapping, causing the text to be cut off.
           </li>
           <li>
-            <a
-              className="hover:underline accent"
-              href="https://github.com/nandorojo/zeego/pull/38#event-8701924358"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Hyperlink href="https://github.com/nandorojo/zeego/pull/38#event-8701924358">
               Zeego
-            </a>
+            </Hyperlink>
             : Added documentation for a new feature to unblock a pull request.
           </li>
           <li>
-            <a
-              className="hover:underline accent"
-              href="https://github.com/expo/expo/pull/21487"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Hyperlink href="https://github.com/expo/expo/pull/21487">
               Expo
-            </a>
+            </Hyperlink>
             : Fixed a typo on the docs.
           </li>
         </ul>

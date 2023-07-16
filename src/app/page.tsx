@@ -1,4 +1,5 @@
 import {Card} from '@/components/card';
+import {Hyperlink} from '@/components/hyperlink';
 import Image from 'next/image';
 import Link from 'next/link';
 import {getLastPosts} from '@/utils/posts';
@@ -45,31 +46,12 @@ export default async function Home() {
             source and doing some contributions. I&apos;ll be posting some of my
             projects here. Stay tuned! 🤓
           </p>
-          <div className="flex gap-4 font-bold justify-center items-center accent">
-            <a
-              className="hover:underline"
-              href="https://github.com/ouwargui"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              🐙 Github
-            </a>
-            <a
-              className="hover:underline"
-              href="https://twitter.com/eoqguih"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              🐦 Twitter
-            </a>
-            <a
-              className="hover:underline"
-              href="https://linkedin.com/in/guiksantos"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <div className="flex gap-4 font-bold justify-center items-center">
+            <Hyperlink href="https://github.com/ouwargui">🐙 Github</Hyperlink>
+            <Hyperlink href="https://twitter.com/eoqguih">🐦 Twitter</Hyperlink>
+            <Hyperlink href="https://linkedin.com/in/guiksantos">
               💼 LinkedIn
-            </a>
+            </Hyperlink>
           </div>
         </div>
         <div className="w-40 md:w-[80rem] aspect-square relative rounded-full overflow-hidden">
