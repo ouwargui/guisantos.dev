@@ -89,8 +89,8 @@ export default function About() {
               Node.js
             </a>
             : I helped to translate the new Node.js website to Brazilian
-            portuguese with more than <span className="accent">1900</span> words
-            translated.
+            portuguese with more than <span className="font-bold">1900</span>{' '}
+            words translated.
           </li>
           <li>
             <a
