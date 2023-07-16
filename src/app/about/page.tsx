@@ -7,18 +7,18 @@ const workHistory: WorkHistory[] = [
     title: 'Software Engineer II at IBM (2022 - current)',
     responsibilities: [
       'Leading the development of a React Native app, improving the NPS and the development process by implementing CI/CD pipelines and automated tests.',
-      'Working on a global project with a team spread across the world that is changing how innersource is done at IBM.',
+      'Working on a global project with a team spread across the world that is changing how inner source is done at IBM.',
       'Developing reusable and maintainable components for mobile applications.',
-      'Transforming business rules in accomplishable, easy to understand and well-scoped user stories for my teammates.',
-      'Ensuring the applications are acessible following the W3 WAI guidelines.',
-      'Working with the design team to ensure the applications are pixel perfect, easy to use and follow the IBM Design System.',
+      'Transforming business rules into accomplishable, easy-to-understand, and well-scoped user stories for my teammates.',
+      'Ensuring the applications are accessible following the W3 WAI guidelines.',
+      'Working with the design team to ensure the applications are pixel-perfect, easy to use, and follow the IBM Design System.',
     ],
   },
   {
     title: 'Software Engineer I at IBM (2021 - 2022)',
     responsibilities: [
-      'Wrote structured, tested, readable and maintainable code.',
-      'Assisted in developing and implemented systems architecture designs, patterns and approaches.',
+      'Wrote structured, tested, readable, and maintainable code.',
+      'Assisted in developing and implementing systems architecture designs, patterns, and approaches.',
       'Designed and developed custom components in 4 distinct projects with different stacks, from web to mobile, from backend to frontend.',
       'Implemented monitoring for servers and mobile applications.',
       'Developed REST and GraphQL APIs.',
@@ -50,13 +50,13 @@ export default function About() {
         <h2 className="text-2xl md:text-3xl font-semibold">About me</h2>
         <p className="text-justify text-sm md:text-base lg:text-lg">
           Hi, I&apos;m Guilherme. I&apos;m a software engineer at IBM, where I
-          work mostly with Node.js, React and React Native. My main
-          responsabilities are to develop and maintain web and mobile
+          work mostly with Node.js, React, and React Native. My main
+          responsibilities are to develop and maintain web and mobile
           applications for the company and its clients.
         </p>
         <p className="text-justify text-sm md:text-base lg:text-lg">
           Currently, I&apos;m leading the development of a React Native app for
-          a major player on the technical suppport area in Brazil, while also
+          a major player in the technical support area in Brazil, while also
           working on a web application written in React for the front-end and
           Node.js for the back-end for the same client.
         </p>
@@ -64,7 +64,7 @@ export default function About() {
           Outside of work, I like to learn new things and improve my skills,
           while staying up to date with the latest technologies and trends.
           I&apos;m also starting to get into the world of open source and doing
-          some contributions to projects that I like and use on a daily basis.
+          some contributions to projects that I like and use daily.
         </p>
         <p className="text-justify text-sm md:text-base lg:text-lg">
           When I&apos;m not coding, I&apos;m probably playing videogames,
@@ -83,7 +83,7 @@ export default function About() {
             <Hyperlink href="https://github.com/nodejs/nodejs.org">
               Node.js
             </Hyperlink>
-            : I helped to translate the new Node.js website to Brazilian
+            : I helped to translate the new Node.js website into Brazilian
             portuguese with more than <span className="font-bold">1900</span>{' '}
             words translated.
           </li>
@@ -91,8 +91,8 @@ export default function About() {
             <Hyperlink href="https://github.com/calcom/cal.com/pull/8978">
               Cal.com
             </Hyperlink>
-            : Fixed a visual bug on the website, all items on the sidebar
-            wasn&apos;t wrapping, causing the text to be cut off.
+            : Fixed a visual bug on the website where all items on the sidebar
+            weren&apos;t wrapping, causing the text to be cut off.
           </li>
           <li>
             <Hyperlink href="https://github.com/nandorojo/zeego/pull/38#event-8701924358">
@@ -121,17 +121,17 @@ export default function About() {
         <p className="text-justify text-sm md:text-base lg:text-lg">
           I&apos;m proud to have been recognized by IBM as a top talent on the
           CIO organization since 2021. With this recognition, I&apos;ve been
-          able to participate in some events and trainings with other top
-          talents from the company.
+          able to participate in some events and training with other top talents
+          from the company.
         </p>
       </section>
       <section className="flex flex-col gap-4">
         <h2 className="text-2xl md:text-3xl font-semibold">My setup</h2>
         <p className="text-justify text-sm md:text-base lg:text-lg">
           I&apos;m currently using a MacBook Pro 16&apos; (M1, 2021) for coding
-          and any flat surface as a desk. I don&apos;t use a external mouse or
-          keyboard because I actually really like the keyboard and trackpad of
-          the MacBook and I feel very productive with them.
+          and any flat surface as a desk. I don&apos;t use an external mouse or
+          keyboard because I actually like the MacBook&apos;s keyboard and
+          trackpad and feel very productive with them.
         </p>
         <p className="text-justify text-sm md:text-base lg:text-lg">
           I&apos;m using the default terminal on macOS with{' '}
