@@ -14,7 +14,7 @@ const projects = [
   {
     name: 'Sigma Audiobooks',
     description:
-      'A Expo + React Native + trpc monorepo with a server and an app for audiobooks',
+      'An Expo + React Native + trpc monorepo with a server and an app for audiobooks',
     href: 'https://github.com/ouwargui/sigma-audiobooks-monorepo',
   },
 ];
@@ -38,7 +38,7 @@ export default async function Home() {
           <p>
             I&apos;m a Software Engineer at IBM. I have a bachelor&apos;s degree
             in Computer Science from the Universidade Anhembi Morumbi. I love to
-            play videogames, watch sports and code.
+            play videogames, watch sports, and code.
           </p>
           <p>
             I&apos;m a big fan of the React ecosystem and I&apos;m always trying
