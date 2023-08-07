@@ -7,7 +7,7 @@ export function Search() {
   const router = useRouter();
 
   return (
-    <div className="flex items-center bg-zinc-800 focus-within:border-orange-400 text-white border-white border rounded pl-2 transition-colors lg:w-1/2">
+    <div className="flex items-center bg-zinc-800 focus-within:border-orange-400 text-white border-white border rounded-md pl-2 transition-colors lg:w-1/2">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
