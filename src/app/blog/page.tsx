@@ -2,10 +2,14 @@ import {getLastPosts, searchPostsByName} from '@/utils/posts';
 import {Card} from '@/components/card';
 import Link from 'next/link';
 import {NewsletterForm} from '@/components/newsletter-form';
+import {NewsletterWelcomeEmailTemplate} from '@/components/newsletter-welcome-email-template';
 import type {Post} from '@/utils/posts';
 import React from 'react';
+import {Resend} from 'resend';
 import {Search} from '@/components/search';
 import {prisma} from '@/lib/prisma';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type Props = {
   searchParams: {[key: string]: string | string[] | undefined};
@@ -35,6 +39,13 @@ export default async function Blog({searchParams}: Props) {
       data: {
         email: email.toString(),
       },
+    });
+
+    await resend.emails.send({
+      from: 'Guilherme Santos <me@guisantos.dev>',
+      to: email.toString(),
+      subject: 'Welcome to my newsletter!',
+      react: NewsletterWelcomeEmailTemplate(),
     });
   }
 
