@@ -1,9 +1,11 @@
 import {getLastPosts, searchPostsByName} from '@/utils/posts';
 import {Card} from '@/components/card';
 import Link from 'next/link';
+import {NewsletterForm} from '@/components/newsletter-form';
 import type {Post} from '@/utils/posts';
 import React from 'react';
 import {Search} from '@/components/search';
+import {prisma} from '@/lib/prisma';
 
 type Props = {
   searchParams: {[key: string]: string | string[] | undefined};
@@ -23,8 +25,17 @@ export default async function Blog({searchParams}: Props) {
     ? await searchPostsByName(search, DEFAULT_POST_FIELDS)
     : await getLastPosts(3, DEFAULT_POST_FIELDS);
 
-  async function subscribeToNewsletter() {
+  async function subscribeToNewsletter(formData: FormData) {
     'use server';
+
+    const email = formData.get('email');
+    if (!email) return;
+
+    await prisma.newsletter.create({
+      data: {
+        email: email.toString(),
+      },
+    });
   }
 
   return (
@@ -63,17 +74,7 @@ export default async function Blog({searchParams}: Props) {
             className="flex justify-start items-center"
             action={subscribeToNewsletter}
           >
-            <input
-              className="bg-zinc-800 text-white p-2 rounded-s-xl border-y border-l border-white outline-none w-full"
-              type="email"
-              placeholder="Email address"
-            />
-            <button
-              className="bg-white font-medium text-zinc-950 p-2 rounded-e-xl border-y border-r border-white"
-              type="submit"
-            >
-              Subscribe
-            </button>
+            <NewsletterForm />
           </form>
         </section>
       </main>
