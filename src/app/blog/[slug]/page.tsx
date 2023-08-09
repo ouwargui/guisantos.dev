@@ -44,11 +44,6 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       publishedTime: new Date(markdown.date).toISOString(),
       images: [
         {
-          url: `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}&width=800&height=600`,
-          width: 800,
-          height: 600,
-        },
-        {
           url: `https://guisantos.dev/api/og?title=${markdown.title}&date=${formattedDate}&width=1200&height=630`,
           width: 1200,
           height: 630,

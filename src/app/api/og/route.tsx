@@ -46,7 +46,7 @@ export async function GET(request: Request) {
             color: 'white',
             fontFamily: 'Red Hat Mono Regular',
             fontSize: '20px',
-            padding: '60px 40px',
+            padding: '60px 100px',
           }}
         >
           <span>{date}</span>
@@ -54,6 +54,7 @@ export async function GET(request: Request) {
             style={{
               fontFamily: 'Red Hat Mono Bold',
               fontSize: '60px',
+              textAlign: 'justify',
             }}
           >
             {title}
