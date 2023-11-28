@@ -33,7 +33,7 @@ export function Header() {
 
   return (
     <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
-      <nav className="container mx-auto flex items-center justify-between flex-wrap p-6">
+      <nav className="container mx-auto flex items-center justify-between p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
           <Link href="/">
             <span className="font-semibold text-xl tracking-tight">
