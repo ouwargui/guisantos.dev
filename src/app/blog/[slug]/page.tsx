@@ -86,7 +86,7 @@ export default async function BlogPost({params}: Props) {
   }
 
   return (
-    <main className="flex flex-col gap-16 flex-1 w-full md:max-w-screen-md lg:max-w-screen-lg py-8 px-4">
+    <main className="flex flex-col gap-16 flex-1 w-full md:max-w-screen-md lg:max-w-screen-lg p-8">
       <header className="flex flex-col text-sm md:text-base w-full gap-1">
         <h1 className="text-2xl md:text-3xl font-bold text-white">
           {markdown.title}

@@ -45,7 +45,7 @@ const workHistory: WorkHistory[] = [
 
 export default function About() {
   return (
-    <main className="relative px-4 flex flex-1 flex-col gap-16 py-8 md:max-w-screen-md lg:max-w-screen-lg text-white">
+    <main className="relative flex flex-1 flex-col gap-16 p-8 md:max-w-screen-md lg:max-w-screen-lg text-white">
       <section className="flex flex-col gap-4">
         <h2 className="text-2xl md:text-3xl font-semibold">About me</h2>
         <p className="text-justify text-sm md:text-base lg:text-lg">

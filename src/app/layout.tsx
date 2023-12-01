@@ -45,9 +45,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body
-        className={`${redHatMono.className} bg-gradient-to-b from-zinc-800 to-zinc-950`}
+        className={`${redHatMono.className} bg-gradient-to-b from-zinc-800 to-zinc-950 overflow-x-hidden`}
       >
-        <div className="mx-auto min-h-screen flex flex-col items-center justify-between">
+        <div className="mx-auto min-h-screen min-w-[100vw] flex flex-col items-center justify-between">
           <Header />
           {children}
           <Footer />
