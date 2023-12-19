@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import {Hyperlink} from './hyperlink';
 import React from 'react';
 
 type Props = {
@@ -16,12 +16,13 @@ export function NotFoundDetails(props: Props) {
       <p className="text-zinc-400 mb-8 text-sm md:text-base">
         {props.description}
       </p>
-      <Link
+      <Hyperlink
+        type="NextLink"
         href={props.href}
         className="hover:bg-white text-white hover:text-zinc-900 border border-white font-semibold py-2 px-4 rounded"
       >
         {props.buttonText}
-      </Link>
+      </Hyperlink>
     </div>
   );
 }

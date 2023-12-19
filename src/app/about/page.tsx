@@ -80,7 +80,10 @@ export default function About() {
         </p>
         <ul className="list-disc list-inside flex flex-col text-justify gap-1 text-sm md:text-base lg:text-lg">
           <li>
-            <Hyperlink href="https://github.com/nodejs/nodejs.org">
+            <Hyperlink
+              type="anchor"
+              href="https://github.com/nodejs/nodejs.org"
+            >
               Node.js
             </Hyperlink>
             : I helped to translate the new Node.js website into Brazilian
@@ -88,20 +91,29 @@ export default function About() {
             words translated.
           </li>
           <li>
-            <Hyperlink href="https://github.com/calcom/cal.com/pull/8978">
+            <Hyperlink
+              type="anchor"
+              href="https://github.com/calcom/cal.com/pull/8978"
+            >
               Cal.com
             </Hyperlink>
             : Fixed a visual bug on the website where all items on the sidebar
             weren&apos;t wrapping, causing the text to be cut off.
           </li>
           <li>
-            <Hyperlink href="https://github.com/nandorojo/zeego/pull/38#event-8701924358">
+            <Hyperlink
+              type="anchor"
+              href="https://github.com/nandorojo/zeego/pull/38#event-8701924358"
+            >
               Zeego
             </Hyperlink>
             : Added documentation for a new feature to unblock a pull request.
           </li>
           <li>
-            <Hyperlink href="https://github.com/expo/expo/pull/21487">
+            <Hyperlink
+              type="anchor"
+              href="https://github.com/expo/expo/pull/21487"
+            >
               Expo
             </Hyperlink>
             : Fixed a typo on the docs.
@@ -135,27 +147,42 @@ export default function About() {
         </p>
         <p className="text-justify text-sm md:text-base lg:text-lg">
           I&apos;m using the default terminal on macOS with{' '}
-          <Hyperlink href="https://github.com/spaceship-prompt/spaceship-prompt">
+          <Hyperlink
+            type="anchor"
+            href="https://github.com/spaceship-prompt/spaceship-prompt"
+          >
             spaceship
           </Hyperlink>{' '}
           as my prompt and{' '}
-          <Hyperlink href="https://ohmyz.sh/">Oh My Zsh</Hyperlink> as my shell.
-          I use{' '}
-          <Hyperlink href="https://code.visualstudio.com/">VSCode</Hyperlink> as
-          my main editor, with the{' '}
-          <Hyperlink href="https://draculatheme.com/">Dracula</Hyperlink> theme
-          and the{' '}
-          <Hyperlink href="https://github.com/tonsky/FiraCode">
+          <Hyperlink type="anchor" href="https://ohmyz.sh/">
+            Oh My Zsh
+          </Hyperlink>{' '}
+          as my shell. I use{' '}
+          <Hyperlink type="anchor" href="https://code.visualstudio.com/">
+            VSCode
+          </Hyperlink>{' '}
+          as my main editor, with the{' '}
+          <Hyperlink type="anchor" href="https://draculatheme.com/">
+            Dracula
+          </Hyperlink>{' '}
+          theme and the{' '}
+          <Hyperlink type="anchor" href="https://github.com/tonsky/FiraCode">
             Fira Code
           </Hyperlink>{' '}
           font. I tried to use Vim, but I just couldn&apos;t get used to it and
           felt like my productivity was going down, so I switched back to{' '}
-          <Hyperlink href="https://code.visualstudio.com/">VSCode</Hyperlink>.
+          <Hyperlink type="anchor" href="https://code.visualstudio.com/">
+            VSCode
+          </Hyperlink>
+          .
         </p>
         <p className="text-justify text-sm md:text-base lg:text-lg">
-          I use <Hyperlink href="https://arc.net/">Arc</Hyperlink> as my main
-          browser and I really make use of the workspaces feature, having one
-          workspace for work and another for personal use.
+          I use{' '}
+          <Hyperlink type="anchor" href="https://arc.net/">
+            Arc
+          </Hyperlink>{' '}
+          as my main browser and I really make use of the workspaces feature,
+          having one workspace for work and another for personal use.
         </p>
       </section>
     </main>

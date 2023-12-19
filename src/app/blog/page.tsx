@@ -1,6 +1,6 @@
 import {getLastPosts, searchPostsByName} from '@/utils/posts';
 import {Card} from '@/components/card';
-import Link from 'next/link';
+import {Hyperlink} from '@/components/hyperlink';
 import {NewsletterForm} from '@/components/newsletter-form';
 import {NewsletterWelcomeEmailTemplate} from '@/components/newsletter-welcome-email-template';
 import type {Post} from '@/utils/posts';
@@ -60,7 +60,8 @@ export default async function Blog({searchParams}: Props) {
       <main className="flex flex-col gap-20 md:gap-40">
         <section className="flex flex-col gap-4">
           {posts.map((post) => (
-            <Link
+            <Hyperlink
+              type="NextLink"
               className="flex flex-col"
               key={post.slug}
               href={`/blog/${post.slug}`}
@@ -70,7 +71,7 @@ export default async function Blog({searchParams}: Props) {
                 description={post.excerpt}
                 date={post.date}
               />
-            </Link>
+            </Hyperlink>
           ))}
         </section>
         <section className="flex w-full md:w-1/2 bg-zinc-800 flex-col gap-4 p-4 rounded-xl text-sm md:text-base">

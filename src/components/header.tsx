@@ -2,7 +2,7 @@
 
 import {Menu, Transition} from '@headlessui/react';
 import React, {Fragment} from 'react';
-import Link from 'next/link';
+import {Hyperlink} from './hyperlink';
 import {usePathname} from 'next/navigation';
 
 const links = [
@@ -35,15 +35,16 @@ export function Header() {
     <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between p-6">
         <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <Link href="/">
+          <Hyperlink type="NextLink" href="/">
             <span className="font-semibold text-xl tracking-tight">
               guisantos.dev
             </span>
-          </Link>
+          </Hyperlink>
         </div>
         <div className="md:flex items-center gap-4 flex-shrink-0 text-white hidden">
           {links.map((link) => (
-            <Link
+            <Hyperlink
+              type="NextLink"
               key={link.href}
               href={link.href}
               className={`${getActiveLinkClass(
@@ -51,7 +52,7 @@ export function Header() {
               )} inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
             >
               {link.label}
-            </Link>
+            </Hyperlink>
           ))}
         </div>
         <Menu as="div" className="relative inline-block text-left md:hidden">
@@ -74,14 +75,15 @@ export function Header() {
                 {links.map((link) => (
                   <Menu.Item key={link.href}>
                     {({active}) => (
-                      <Link
+                      <Hyperlink
+                        type="NextLink"
                         href={link.href}
                         className={`${
                           active ? 'bg-zinc-900 text-white' : 'text-zinc-900'
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-zinc-900 hover:text-white`}
                       >
                         {link.label}
-                      </Link>
+                      </Hyperlink>
                     )}
                   </Menu.Item>
                 ))}

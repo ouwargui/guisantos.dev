@@ -1,7 +1,6 @@
 import {Card} from '@/components/card';
 import {Hyperlink} from '@/components/hyperlink';
 import Image from 'next/image';
-import Link from 'next/link';
 import {getLastPosts} from '@/utils/posts';
 
 const projects = [
@@ -47,9 +46,13 @@ export default async function Home() {
             projects here. Stay tuned! 🤓
           </p>
           <div className="flex gap-4 font-bold justify-center items-center">
-            <Hyperlink href="https://github.com/ouwargui">🐙 Github</Hyperlink>
-            <Hyperlink href="https://twitter.com/eoqguih">🐦 Twitter</Hyperlink>
-            <Hyperlink href="https://linkedin.com/in/guiksantos">
+            <Hyperlink type="anchor" href="https://github.com/ouwargui">
+              🐙 Github
+            </Hyperlink>
+            <Hyperlink type="anchor" href="https://twitter.com/eoqguih">
+              🐦 Twitter
+            </Hyperlink>
+            <Hyperlink type="anchor" href="https://linkedin.com/in/guiksantos">
               💼 LinkedIn
             </Hyperlink>
           </div>
@@ -68,14 +71,14 @@ export default async function Home() {
         <h2 className="text-xl md:text-2xl font-semibold">Projects</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {projects.map((project, index) => (
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
+            <Hyperlink
+              type="anchor"
+              className={undefined}
               href={project.href}
               key={index.toString()}
             >
               <Card title={project.name} description={project.description} />
-            </a>
+            </Hyperlink>
           ))}
         </div>
       </section>
@@ -83,13 +86,17 @@ export default async function Home() {
         <h2 className="text-xl md:text-2xl font-semibold">Latest Posts</h2>
         <div className="grid gap-4">
           {posts.map((post, index) => (
-            <Link href={`/blog/${post.slug}`} key={index.toString()}>
+            <Hyperlink
+              type="NextLink"
+              href={`/blog/${post.slug}`}
+              key={index.toString()}
+            >
               <Card
                 title={post.title}
                 description={post.excerpt}
                 date={post.date}
               />
-            </Link>
+            </Hyperlink>
           ))}
         </div>
       </section>

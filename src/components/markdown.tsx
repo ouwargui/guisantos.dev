@@ -1,6 +1,7 @@
 'use client';
 
 import React, {useState} from 'react';
+import {Hyperlink} from './hyperlink';
 import {ReactMarkdown} from 'react-markdown/lib/react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {Tooltip} from 'react-tooltip';
@@ -24,6 +25,9 @@ export function Markdown({markdown}: Props) {
   return (
     <ReactMarkdown
       components={{
+        a({children, ...props}) {
+          return <Hyperlink {...props}>{children}</Hyperlink>;
+        },
         pre({children, ...props}) {
           return (
             <pre {...props} className="overflow-visible">
