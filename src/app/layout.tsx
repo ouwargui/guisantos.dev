@@ -1,8 +1,8 @@
 import './globals.css';
+import type {Metadata, Viewport} from 'next';
 import {Analytics} from '@vercel/analytics/react';
 import {Footer} from '@/components/footer';
 import {Header} from '@/components/header';
-import type {Metadata, Viewport} from 'next';
 import {Red_Hat_Mono} from 'next/font/google';
 
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
@@ -10,7 +10,7 @@ const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 export const viewport: Viewport = {
   themeColor: '27272a',
   colorScheme: 'dark',
-}
+};
 
 export const metadata: Metadata = {
   title: {
