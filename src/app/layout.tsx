@@ -2,10 +2,15 @@ import './globals.css';
 import {Analytics} from '@vercel/analytics/react';
 import {Footer} from '@/components/footer';
 import {Header} from '@/components/header';
-import {Metadata} from 'next';
+import type {Metadata, Viewport} from 'next';
 import {Red_Hat_Mono} from 'next/font/google';
 
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
+
+export const viewport: Viewport = {
+  themeColor: '27272a',
+  colorScheme: 'dark',
+}
 
 export const metadata: Metadata = {
   title: {
@@ -14,8 +19,6 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL('https://guisantos.dev'),
   description: "Guilherme's portfolio and blog",
-  themeColor: '#27272a',
-  colorScheme: 'dark',
   creator: 'Guilherme Santos',
   publisher: 'Guilherme Santos',
   openGraph: {

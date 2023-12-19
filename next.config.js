@@ -10,8 +10,11 @@ const nextConfig = {
     ],
   },
   experimental: {
-    serverActions: true,
-  },
+    serverActions: {
+      allowedForwardedHosts: ['solid-lamp-xvr9w6jvp7qh64g4-3000.app.github.dev', 'localhost:3000'],
+      allowedOrigins: ['solid-lamp-xvr9w6jvp7qh64g4-3000.app.github.dev', 'localhost:3000']
+    }
+  }
 };
 
 module.exports = nextConfig;

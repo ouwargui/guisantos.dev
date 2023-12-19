@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import {experimental_useFormStatus as useFormStatus} from 'react-dom';
+// @ts-expect-error TODO: remove this when the types is fixed
+import {useFormStatus} from 'react-dom';
 
 export function NewsletterForm() {
   const {pending} = useFormStatus();

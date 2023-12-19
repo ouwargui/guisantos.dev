@@ -58,7 +58,9 @@ export default async function Home() {
           <Image
             src="https://github.com/ouwargui.png"
             fill
+            sizes="(max-width: 768px) 160px, (max-width: 1024px) 260px, 330px"
             alt="Picture of the author"
+            priority
           />
         </div>
       </section>
