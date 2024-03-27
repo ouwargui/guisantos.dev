@@ -4,6 +4,7 @@ import {Analytics} from '@vercel/analytics/react';
 import {Footer} from '@/components/footer';
 import {Header} from '@/components/header';
 import {Red_Hat_Mono} from 'next/font/google';
+import {SpeedInsights} from '@vercel/speed-insights/next';
 
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 
@@ -56,6 +57,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <Footer />
         </div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
