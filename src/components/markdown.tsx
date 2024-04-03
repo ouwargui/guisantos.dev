@@ -1,7 +1,7 @@
 'use client';
 
-import React, {ReactNode, useState} from 'react';
-import {ClipboardTooltip} from './clipboard-tooltip';
+import React, {ReactNode} from 'react';
+import {CopyToClipboard} from './copy-to-clipboard';
 import {Hyperlink} from './hyperlink';
 import {ReactMarkdown} from 'react-markdown/lib/react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
@@ -37,7 +37,7 @@ export function Markdown({markdown}: Props) {
                 <div className="w-2 h-2 bg-yellow-500 rounded-full" />
                 <div className="w-2 h-2 bg-green-500 rounded-full" />
               </div>
-              <ClipboardTooltip content={getCodeContent(children)} />
+              <CopyToClipboard content={getCodeContent(children)} />
             </div>
             {children}
           </pre>
