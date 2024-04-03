@@ -1,6 +1,9 @@
 import {Card} from '@/components/card';
+import {GithubIcon} from '@/icons/github';
 import {Hyperlink} from '@/components/hyperlink';
 import Image from 'next/image';
+import {LinkedinIcon} from '@/icons/linkedin';
+import {XIcon} from '@/icons/x';
 import {getLastPosts} from '@/utils/posts';
 
 const projects = [
@@ -46,14 +49,32 @@ export default async function Home() {
             projects here. Stay tuned! 🤓
           </p>
           <div className="flex gap-4 font-bold justify-center items-center">
-            <Hyperlink type="anchor" href="https://github.com/ouwargui">
-              🐙 Github
+            <Hyperlink
+              type="anchor"
+              href="https://github.com/ouwargui"
+              icon={
+                <GithubIcon className="w-6 h-6 text-white group-hover:opacity-80 transition-all duration-150" />
+              }
+            >
+              Github
             </Hyperlink>
-            <Hyperlink type="anchor" href="https://twitter.com/eoqguih">
-              🐦 Twitter
+            <Hyperlink
+              type="anchor"
+              href="https://twitter.com/eoqguih"
+              icon={
+                <XIcon className="w-6 h-6 fill-white group-hover:opacity-80 transition-all duration-150" />
+              }
+            >
+              Twitter
             </Hyperlink>
-            <Hyperlink type="anchor" href="https://linkedin.com/in/guiksantos">
-              💼 LinkedIn
+            <Hyperlink
+              type="anchor"
+              href="https://linkedin.com/in/guiksantos"
+              icon={
+                <LinkedinIcon className="w-6 h-6 text-white group-hover:opacity-80 transition-all duration-150" />
+              }
+            >
+              LinkedIn
             </Hyperlink>
           </div>
         </div>

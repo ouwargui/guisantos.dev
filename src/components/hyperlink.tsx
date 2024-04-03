@@ -16,16 +16,51 @@ interface NextLinkProps extends NextLink {
   children: ReactNode;
 }
 
-type Props = AProps | NextLinkProps;
+type Props = {
+  icon?: ReactNode;
+} & (AProps | NextLinkProps);
 
 export function Hyperlink(props: Props) {
+  if (props.icon) {
+    if (props.type === 'anchor') {
+      return (
+        <a
+          className="accent flex gap-2 items-center justify-center group"
+          target="_blank"
+          {...props}
+        >
+          {props.icon}
+          <span className="anchor group-hover:anchor-hover">
+            {props.children}
+          </span>
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        className="accent flex gap-2 items-center justify-center"
+        {...props}
+      >
+        {props.icon}
+        <span className="anchor group-hover:anchor-hover">
+          {props.children}
+        </span>
+      </Link>
+    );
+  }
+
   if (props.type === 'anchor') {
     return (
-      <a className="accent underline" target="_blank" {...props}>
+      <a
+        target="_blank"
+        className="anchor hover:anchor-hover accent"
+        {...props}
+      >
         {props.children}
       </a>
     );
-  } else {
-    return <Link {...props}>{props.children}</Link>;
   }
+
+  return <Link {...props}>{props.children}</Link>;
 }

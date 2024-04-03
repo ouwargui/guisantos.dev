@@ -10,28 +10,21 @@
   .gradient {
     @apply text-transparent font-bold bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500;
   }
-}
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+  .anchor {
+    text-decoration-line: underline;
+    text-underline-offset: 4px;
+    transition-property: all;
+    transition-duration: .15s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .anchor-hover {
+    text-underline-offset: 2px;
+    opacity: .8;
+    transition-property: all;
+    transition-duration: .15s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
