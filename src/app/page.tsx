@@ -94,7 +94,7 @@ export default async function Home() {
           {projects.map((project, index) => (
             <Hyperlink
               type="anchor"
-              className={undefined}
+              className={''}
               href={project.href}
               key={index.toString()}
             >

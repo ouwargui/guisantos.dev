@@ -62,7 +62,6 @@ export default async function Blog({searchParams}: Props) {
           {posts.map((post) => (
             <Hyperlink
               type="NextLink"
-              className="flex flex-col"
               key={post.slug}
               href={`/blog/${post.slug}`}
             >
