@@ -7,6 +7,8 @@ export function Search() {
   return (
     <div className="flex items-center bg-zinc-800 focus-within:border-orange-400 text-white border-white border rounded-md pl-2 transition-colors lg:w-1/2">
       <svg
+        role="img"
+        aria-label="Search icon"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

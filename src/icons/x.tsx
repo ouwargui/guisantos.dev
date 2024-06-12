@@ -3,6 +3,8 @@ import type {SVGAttributes} from 'react';
 export function XIcon(props: SVGAttributes<SVGElement>) {
   return (
     <svg
+      role="img"
+      aria-label="X icon"
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"

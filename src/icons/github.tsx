@@ -3,6 +3,8 @@ import type {SVGAttributes} from 'react';
 export function GithubIcon(props: SVGAttributes<SVGElement>) {
   return (
     <svg
+      role="img"
+      aria-label="GitHub icon"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 496 512"
       fill="currentColor"

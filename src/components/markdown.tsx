@@ -15,8 +15,8 @@ export function Markdown({markdown}: Props) {
   const getCodeContent = (children: ReactNode & ReactNode[]) => {
     try {
       // @ts-expect-error TODO: end my life
-      return children[0]['props']['children'][0];
-    } catch (e) {
+      return children[0].props.children[0];
+    } catch (_e) {
       return '';
     }
   };

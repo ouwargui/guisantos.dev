@@ -20,6 +20,7 @@ export function CopyToClipboard(props: Props) {
 
   return (
     <button
+      type="button"
       className={clsx(
         'group hover:bg-white rounded-md p-1 flex gap-2 items-center justify-center transition-all',
         copied && 'bg-white cursor-default',
@@ -54,6 +55,8 @@ type ClipboardIconProps = {
 function ClipboardIcon(props: ClipboardIconProps) {
   return (
     <svg
+      role="img"
+      aria-label="Copy to clipboard icon"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       strokeWidth="2"
@@ -75,6 +78,8 @@ function ClipboardIcon(props: ClipboardIconProps) {
 function ClipboardCheckmarkIcon(props: ClipboardIconProps) {
   return (
     <svg
+      role="img"
+      aria-label="Content copied icon"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
