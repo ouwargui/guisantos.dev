@@ -2,7 +2,7 @@
 
 import type {ReactNode} from 'react';
 import {ReactMarkdown} from 'react-markdown/lib/react-markdown';
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
 import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {CopyToClipboard} from './copy-to-clipboard';
 import {Hyperlink} from './hyperlink';
@@ -45,6 +45,7 @@ export function Markdown({markdown}: Props) {
         code: ({node, inline, className, children, ...props}) => {
           const match = /language-(\w+)/.exec(className ?? '');
           return !inline && match ? (
+            // @ts-expect-error React 19 WIP types
             <SyntaxHighlighter
               {...props}
               style={dracula}
