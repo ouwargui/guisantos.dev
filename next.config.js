@@ -11,10 +11,19 @@ const nextConfig = {
   },
   experimental: {
     serverActions: {
-      allowedForwardedHosts: ['solid-lamp-xvr9w6jvp7qh64g4-3000.app.github.dev', 'localhost:3000'],
-      allowedOrigins: ['solid-lamp-xvr9w6jvp7qh64g4-3000.app.github.dev', 'localhost:3000']
-    }
-  }
+      allowedForwardedHosts: [
+        'solid-lamp-xvr9w6jvp7qh64g4-3000.app.github.dev',
+        'localhost:3000',
+      ],
+      allowedOrigins: [
+        'solid-lamp-xvr9w6jvp7qh64g4-3000.app.github.dev',
+        'localhost:3000',
+      ],
+    },
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;

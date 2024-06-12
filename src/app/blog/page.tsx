@@ -1,13 +1,12 @@
-import {getLastPosts, searchPostsByName} from '@/utils/posts';
 import {Card} from '@/components/card';
 import {Hyperlink} from '@/components/hyperlink';
 import {NewsletterForm} from '@/components/newsletter-form';
 import {NewsletterWelcomeEmailTemplate} from '@/components/newsletter-welcome-email-template';
-import type {Post} from '@/utils/posts';
-import React from 'react';
-import {Resend} from 'resend';
 import {Search} from '@/components/search';
 import {prisma} from '@/lib/prisma';
+import {getLastPosts, searchPostsByName} from '@/utils/posts';
+import type {Post} from '@/utils/posts';
+import {Resend} from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

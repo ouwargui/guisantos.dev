@@ -1,7 +1,7 @@
 'use client';
 
-import React, {useState} from 'react';
 import clsx from 'clsx';
+import {useState} from 'react';
 
 type Props = {
   content: string;

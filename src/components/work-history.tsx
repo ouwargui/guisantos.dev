@@ -1,5 +1,3 @@
-import React from 'react';
-
 export type WorkHistory = {
   title: string;
   responsibilities: string[];

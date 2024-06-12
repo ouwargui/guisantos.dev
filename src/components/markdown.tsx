@@ -1,11 +1,11 @@
 'use client';
 
-import React, {ReactNode} from 'react';
-import {CopyToClipboard} from './copy-to-clipboard';
-import {Hyperlink} from './hyperlink';
+import type {ReactNode} from 'react';
 import {ReactMarkdown} from 'react-markdown/lib/react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {CopyToClipboard} from './copy-to-clipboard';
+import {Hyperlink} from './hyperlink';
 
 type Props = {
   markdown: string;

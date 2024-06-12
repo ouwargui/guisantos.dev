@@ -1,7 +1,6 @@
 import {Markdown} from '@/components/markdown';
-import {Metadata} from 'next';
-import React from 'react';
 import {getPostBySlug} from '@/utils/posts';
+import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 
 type Props = {

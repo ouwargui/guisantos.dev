@@ -1,9 +1,9 @@
 'use client';
 
 import {Menu, Transition} from '@headlessui/react';
-import React, {Fragment} from 'react';
-import {Hyperlink} from './hyperlink';
 import {usePathname} from 'next/navigation';
+import {Fragment} from 'react';
+import {Hyperlink} from './hyperlink';
 
 const links = [
   {

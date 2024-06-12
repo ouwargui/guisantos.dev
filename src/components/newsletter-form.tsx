@@ -1,6 +1,4 @@
 'use client';
-
-import React from 'react';
 // @ts-expect-error TODO: remove this when the types is fixed
 import {useFormStatus} from 'react-dom';
 

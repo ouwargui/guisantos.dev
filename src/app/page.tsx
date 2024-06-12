@@ -1,10 +1,10 @@
 import {Card} from '@/components/card';
-import {GithubIcon} from '@/icons/github';
 import {Hyperlink} from '@/components/hyperlink';
-import Image from 'next/image';
+import {GithubIcon} from '@/icons/github';
 import {LinkedinIcon} from '@/icons/linkedin';
 import {XIcon} from '@/icons/x';
 import {getLastPosts} from '@/utils/posts';
+import Image from 'next/image';
 
 const projects = [
   {

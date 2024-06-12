@@ -33,51 +33,49 @@ export async function GET(request: Request) {
     const height = hasHeight ? Number(searchParams.get('height')) : 600;
 
     return new ImageResponse(
-      (
-        <div
+      <div
+        style={{
+          background: 'linear-gradient(to bottom, #27272a, #09090b)',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          color: 'white',
+          fontFamily: 'Red Hat Mono Regular',
+          fontSize: '20px',
+          padding: '60px 100px',
+        }}
+      >
+        <span>{date}</span>
+        <h1
           style={{
-            background: 'linear-gradient(to bottom, #27272a, #09090b)',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            justifyContent: 'space-between',
-            color: 'white',
-            fontFamily: 'Red Hat Mono Regular',
-            fontSize: '20px',
-            padding: '60px 100px',
+            fontFamily: 'Red Hat Mono Bold',
+            fontSize: '60px',
+            textAlign: 'justify',
           }}
         >
-          <span>{date}</span>
-          <h1
-            style={{
-              fontFamily: 'Red Hat Mono Bold',
-              fontSize: '60px',
-              textAlign: 'justify',
-            }}
-          >
-            {title}
-          </h1>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              width: '100%',
-            }}
-          >
-            <span>guisantos.dev</span>
-            <img
-              width="64"
-              height="64"
-              src="https://github.com/ouwargui.png"
-              style={{borderRadius: 32}}
-              alt="Guilherme Santos"
-            />
-          </div>
+          {title}
+        </h1>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: '100%',
+          }}
+        >
+          <span>guisantos.dev</span>
+          <img
+            width="64"
+            height="64"
+            src="https://github.com/ouwargui.png"
+            style={{borderRadius: 32}}
+            alt="Guilherme Santos"
+          />
         </div>
-      ),
+      </div>,
       {
         width: width,
         height: height,

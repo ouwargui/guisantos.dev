@@ -1,5 +1,4 @@
 import {Hyperlink} from './hyperlink';
-import React from 'react';
 
 type Props = {
   description: string;

@@ -1,5 +1,4 @@
 import {Hyperlink} from '@/components/hyperlink';
-import React from 'react';
 import {WorkHistory} from '@/components/work-history';
 
 const workHistory: WorkHistory[] = [

@@ -1,6 +1,4 @@
-import {Metadata} from 'next';
 import {NotFoundDetails} from '@/components/not-found-details';
-import React from 'react';
 
 export default function NotFound() {
   return (

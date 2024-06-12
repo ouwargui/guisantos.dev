@@ -1,5 +1,5 @@
 import Link, {type LinkProps} from 'next/link';
-import React, {type AnchorHTMLAttributes, type ReactNode} from 'react';
+import type {AnchorHTMLAttributes, ReactNode} from 'react';
 
 interface AProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   type: 'anchor';
@@ -28,6 +28,7 @@ export function Hyperlink(props: Props) {
           }
           href={props.href}
           target="_blank"
+          rel="noreferrer"
         >
           {props.icon}
           <span className="anchor group-hover:anchor-hover">
@@ -58,6 +59,7 @@ export function Hyperlink(props: Props) {
         target="_blank"
         className={props.className ?? 'anchor hover:anchor-hover accent'}
         href={props.href}
+        rel="noreferrer"
       >
         {props.children}
       </a>

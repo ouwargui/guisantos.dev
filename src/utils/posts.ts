@@ -1,5 +1,5 @@
-import fs from 'fs/promises';
 import {join} from 'path';
+import fs from 'fs/promises';
 import matter from 'gray-matter';
 
 export type Post = {
