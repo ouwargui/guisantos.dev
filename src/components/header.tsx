@@ -8,15 +8,15 @@ import {Hyperlink} from './hyperlink';
 const links = [
   {
     href: '/',
-    label: 'Home',
+    label: 'home',
   },
   {
     href: '/blog',
-    label: 'Blog',
+    label: 'blog',
   },
   {
     href: '/about',
-    label: 'About',
+    label: 'about',
   },
 ];
 

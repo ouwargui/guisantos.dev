@@ -28,7 +28,7 @@ export default async function Home() {
     <main className="relative p-8 flex flex-1 flex-col gap-16 md:max-w-screen-md lg:max-w-screen-lg text-white">
       <section className="flex flex-col gap-4">
         <h1 className="text-3xl md:text-5xl font-semibold text-white self-center">
-          🙋🏻‍♂️ Hello, world!
+          🙋🏻‍♂️ hello, world!
         </h1>
         <h2 className="text-white text-center text-sm md:text-base lg:text-lg">
           I&apos;m <span className="accent">Guilherme</span>, a software
