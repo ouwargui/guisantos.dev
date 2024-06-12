@@ -1,12 +1,7 @@
-import './globals.css';
-import {Footer} from '@/components/footer';
-import {Header} from '@/components/header';
+import '@/app/globals.css';
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import type {Metadata, Viewport} from 'next';
-import {Red_Hat_Mono} from 'next/font/google';
-
-const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 
 export const viewport: Viewport = {
   themeColor: '27272a',
@@ -48,14 +43,8 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body
-        className={`${redHatMono.className} bg-gradient-to-b from-zinc-800 to-zinc-950 overflow-x-hidden`}
-      >
-        <div className="mx-auto min-h-screen min-w-[100vw] flex flex-col items-center justify-between">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+      <body>
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>
