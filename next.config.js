@@ -10,6 +10,7 @@ const nextConfig = {
     ],
   },
   experimental: {
+    reactCompiler: true,
     serverActions: {
       allowedForwardedHosts: [
         'solid-lamp-xvr9w6jvp7qh64g4-3000.app.github.dev',

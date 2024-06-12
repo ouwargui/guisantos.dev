@@ -14,6 +14,7 @@
     "@prisma/client": "^5.1.1",
     "@vercel/analytics": "^1.0.1",
     "@vercel/speed-insights": "^1.0.10",
+    "babel-plugin-react-compiler": "^0.0.0-experimental-938cd9a-20240601",
     "clsx": "^2.1.0",
     "gray-matter": "^4.0.3",
     "next": "^15.0.0-rc.0",
