@@ -49,9 +49,9 @@ export default async function Blog({searchParams}: Props) {
   }
 
   return (
-    <main className="flex flex-col gap-8 flex-1 w-full justify-start md:max-w-screen-md lg:max-w-screen-lg p-8 text-white">
+    <main className="flex flex-col gap-8 flex-1 w-full justify-start md:max-w-screen-md lg:max-w-screen-lg p-8 text-foreground">
       <header className="flex flex-col md:flex-row justify-between gap-4">
-        <h1 className="text-2xl md:text-3xl font-bold text-white">
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground">
           Blog posts
         </h1>
         <Search />
@@ -72,11 +72,11 @@ export default async function Blog({searchParams}: Props) {
             </Hyperlink>
           ))}
         </section>
-        <section className="flex w-full md:w-1/2 bg-zinc-800 flex-col gap-4 p-4 rounded-xl text-sm md:text-base">
-          <h2 className="text-white font-semibold text-lg">
+        <section className="flex w-full md:w-1/2 bg-muted flex-col gap-4 p-4 rounded-xl text-sm md:text-base">
+          <h2 className="text-secondary font-semibold text-lg">
             Don&apos;t miss out!
           </h2>
-          <p className="text-zinc-400 text-justify">
+          <p className="text-foreground text-justify">
             Sign up for my newsletter and I&apos;ll send you an email every time
             I publish a new article.
           </p>

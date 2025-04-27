@@ -25,12 +25,12 @@ export default async function Home() {
   const posts = await getLastPosts(3, ['excerpt', 'date', 'slug', 'title']);
 
   return (
-    <main className="relative p-8 flex flex-1 flex-col gap-16 md:max-w-screen-md lg:max-w-screen-lg text-white">
+    <main className="relative p-8 flex flex-1 flex-col gap-16 md:max-w-screen-md lg:max-w-screen-lg text-foreground">
       <section className="flex flex-col gap-4">
-        <h1 className="text-3xl md:text-5xl font-semibold text-white self-center">
+        <h1 className="text-3xl md:text-5xl font-semibold self-center">
           🙋🏻‍♂️ hello, world!
         </h1>
-        <h2 className="text-white text-center text-sm md:text-base lg:text-lg">
+        <h2 className="text-center text-sm md:text-base lg:text-lg">
           I&apos;m <span className="accent">Guilherme</span>, a software
           engineer from Brazil.
         </h2>
@@ -53,7 +53,7 @@ export default async function Home() {
               type="anchor"
               href="https://github.com/ouwargui"
               icon={
-                <GithubIcon className="w-6 h-6 text-white group-hover:opacity-80 transition-all duration-150" />
+                <GithubIcon className="w-6 h-6 text-foreground group-hover:opacity-80 transition-all duration-150" />
               }
             >
               Github
@@ -62,7 +62,7 @@ export default async function Home() {
               type="anchor"
               href="https://twitter.com/eoqguih"
               icon={
-                <XIcon className="w-6 h-6 fill-white group-hover:opacity-80 transition-all duration-150" />
+                <XIcon className="w-6 h-6 fill-foreground group-hover:opacity-80 transition-all duration-150" />
               }
             >
               Twitter
@@ -71,7 +71,7 @@ export default async function Home() {
               type="anchor"
               href="https://linkedin.com/in/guiksantos"
               icon={
-                <LinkedinIcon className="w-6 h-6 text-white group-hover:opacity-80 transition-all duration-150" />
+                <LinkedinIcon className="w-6 h-6 text-foreground group-hover:opacity-80 transition-all duration-150" />
               }
             >
               LinkedIn

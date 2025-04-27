@@ -1,12 +1,28 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+:root {
+  --foreground: oklch(0.83 0.0018 247.84);
+  --background: oklch(0.16 0.0087 274.28);
+  --primary: oklch(0.91 0.1282 188.42);
+  --secondary: oklch(0.66 0.0877 191.36);
+  --muted: oklch(0.27 0.0242 253.69);
+}
+
+@theme inline {
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+}
+
 @utility accent {
-  @apply text-orange-400 font-bold;
+  @apply text-primary font-bold;
 }
 
 @utility gradient {
-  @apply text-transparent font-bold bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500;
+  @apply text-transparent font-bold bg-clip-text bg-gradient-to-r from-primary to-secondary;
 }
 
 @utility anchor {

@@ -1,13 +1,13 @@
 import fs from 'node:fs/promises';
 import {join} from 'node:path';
-import matter from 'gray-matter';
+import type {MDXContent} from 'mdx/types';
 
 export type Post = {
   slug: string;
   title: string;
   excerpt: string;
   date: string;
-  content: string;
+  content: MDXContent;
   timeToRead: number;
   author: {
     name: string;
@@ -33,7 +33,7 @@ export async function getLastPosts(
 ): Promise<Post[]> {
   const files = await fs.readdir(POSTS_DIRECTORY);
   const posts = files.map((filename) => {
-    const slug = filename.replace('.md', '');
+    const slug = filename.replace('.mdx', '');
     const post = getPostBySlug(slug, fields);
     if (post) {
       return post;
@@ -50,8 +50,7 @@ export async function getPostBySlug(
   fields: Array<keyof Post>,
 ): Promise<Post | undefined> {
   try {
-    const file = await fs.readFile(join(POSTS_DIRECTORY, `${slug}.md`), 'utf8');
-    const {data, content} = matter(file);
+    const {default: Post, metadata} = await import(`@/posts/${slug}.mdx`);
 
     const items: {[key: string]: unknown} = {};
 
@@ -61,11 +60,11 @@ export async function getPostBySlug(
       }
 
       if (field === 'content') {
-        items[field] = content;
+        items[field] = Post;
       }
 
-      if (data[field]) {
-        items[field] = data[field];
+      if (metadata[field]) {
+        items[field] = metadata[field];
       }
     });
 

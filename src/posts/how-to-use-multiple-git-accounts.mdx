@@ -1,15 +1,21 @@
----
-title: 'How to use multiple git accounts on the same machine'
-excerpt: 'In this post I will show you how to use multiple git accounts on the same machine.'
-coverImage: '/assets/blog/hello-world/cover.jpg'
-date: '2023-06-23T23:32:00.892Z'
-timeToRead: 4
-author:
-  name: 'Guilherme Santos'
-  picture: 'https://github.com/ouwargui.png'
-ogImage:
-  url: '/assets/blog/hello-world/cover.jpg'
----
+import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/prism";
+import {dracula} from "react-syntax-highlighter/dist/esm/styles/prism";
+
+export const metadata = {
+  title: "How to use multiple git accounts on the same machine",
+  excerpt:
+    "In this post I will show you how to use multiple git accounts on the same machine.",
+  coverImage: "/assets/blog/hello-world/cover.jpg",
+  date: "2023-06-23T23:32:00.892Z",
+  timeToRead: 4,
+  author: {
+    name: "Guilherme Santos",
+  },
+  picture: "https://github.com/ouwargui.png",
+  ogImage: {
+    url: "/assets/blog/hello-world/cover.jpg",
+  },
+};
 
 Have you ever had to use multiple git accounts on the same machine? If so, you know how annoying it is to have to change the git config every time you want to push to a different account. In this post, I will show you how to use multiple git accounts that will be used automatically depending on the directory you are in.
 
@@ -58,9 +64,9 @@ Now that you have created your SSH keys and added them to your GitHub account, y
 
 If you already have an SSH config file, you can skip this step.
 
-```bash
-$ touch ~/.ssh/config
-```
+<SyntaxHighlighter {...props} style={dracula} language={"bash"} showLineNumbers>
+  {"$ touch ~/.ssh/config".replace(/\n$/, "")}
+</SyntaxHighlighter>
 
 Now open the file you just created and add the following content to it:
 

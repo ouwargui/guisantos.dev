@@ -34,14 +34,14 @@ export function Header() {
   return (
     <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between p-6">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
+        <div className="flex items-center flex-shrink-0 text-foreground mr-6">
           <Hyperlink type="NextLink" href="/">
             <span className="font-semibold text-xl tracking-tight">
               guisantos.dev
             </span>
           </Hyperlink>
         </div>
-        <div className="md:flex items-center gap-4 flex-shrink-0 text-white hidden">
+        <div className="md:flex items-center gap-4 flex-shrink-0 text-foreground hidden">
           {links.map((link) => (
             <Hyperlink
               type="NextLink"
@@ -49,7 +49,7 @@ export function Header() {
               href={link.href}
               className={`${getActiveLinkClass(
                 link.href,
-              )} inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
+              )} inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-foreground border-foreground hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
             >
               {link.label}
             </Hyperlink>
@@ -57,7 +57,7 @@ export function Header() {
         </div>
         <Menu as="div" className="relative inline-block text-left md:hidden">
           <div>
-            <Menu.Button className="inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-sm font-medium text-zinc-950 hover:bg-opacity-80">
+            <Menu.Button className="inline-flex w-full justify-center rounded-md bg-foreground px-4 py-2 text-sm font-medium text-zinc-950 hover:bg-opacity-80">
               Menu
             </Menu.Button>
           </div>
@@ -79,8 +79,10 @@ export function Header() {
                         type="NextLink"
                         href={link.href}
                         className={`${
-                          active ? 'bg-zinc-900 text-white' : 'text-zinc-900'
-                        } group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-zinc-900 hover:text-white`}
+                          active
+                            ? 'bg-zinc-900 text-foreground'
+                            : 'text-zinc-900'
+                        } group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-zinc-900 hover:text-foreground`}
                       >
                         {link.label}
                       </Hyperlink>
