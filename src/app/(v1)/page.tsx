@@ -27,7 +27,7 @@ export default async function Home() {
   return (
     <main className="relative p-8 flex flex-1 flex-col gap-16 md:max-w-screen-md lg:max-w-screen-lg text-foreground">
       <section className="flex flex-col gap-4">
-        <h1 className="text-3xl md:text-5xl font-semibold self-center">
+        <h1 className="text-3xl md:text-5xl font-semibold self-center text-primary">
           🙋🏻‍♂️ hello, world!
         </h1>
         <h2 className="text-center text-sm md:text-base lg:text-lg">

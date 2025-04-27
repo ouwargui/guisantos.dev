@@ -22,6 +22,7 @@ export function Hyperlink(props: Props) {
     if (props.type === 'anchor') {
       return (
         <a
+          {...props}
           className={
             props.className ??
             'accent flex gap-2 items-center justify-center group'
@@ -40,6 +41,7 @@ export function Hyperlink(props: Props) {
 
     return (
       <Link
+        {...props}
         className={
           props.className ?? 'accent flex gap-2 items-center justify-center'
         }
@@ -56,6 +58,7 @@ export function Hyperlink(props: Props) {
   if (props.type === 'anchor') {
     return (
       <a
+        {...props}
         target="_blank"
         className={props.className ?? 'anchor hover:anchor-hover accent'}
         href={props.href}
@@ -67,7 +70,7 @@ export function Hyperlink(props: Props) {
   }
 
   return (
-    <Link className={props.className} href={props.href}>
+    <Link {...props} className={props.className} href={props.href}>
       {props.children}
     </Link>
   );

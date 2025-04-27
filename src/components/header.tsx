@@ -1,6 +1,12 @@
 'use client';
 
-import {Menu, Transition} from '@headlessui/react';
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  Transition,
+} from '@headlessui/react';
 import {usePathname} from 'next/navigation';
 import {Fragment} from 'react';
 import {Hyperlink} from './hyperlink';
@@ -14,10 +20,10 @@ const links = [
     href: '/blog',
     label: 'blog',
   },
-  {
-    href: '/about',
-    label: 'about',
-  },
+  // {
+  //   href: '/about',
+  //   label: 'about',
+  // },
 ];
 
 export function Header() {
@@ -25,16 +31,16 @@ export function Header() {
 
   const getActiveLinkClass = (href: string) => {
     if (href === '/') {
-      return pathname === href ? 'bg-white text-zinc-900' : '';
+      return pathname === href ? 'text-primary' : '';
     }
 
-    return pathname.startsWith(href) ? 'bg-white text-zinc-900' : '';
+    return pathname.startsWith(href) ? 'text-primary' : '';
   };
 
   return (
     <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
       <nav className="container mx-auto flex items-center justify-between p-6">
-        <div className="flex items-center flex-shrink-0 text-foreground mr-6">
+        <div className="flex items-center flex-shrink-0 text-primary mr-6">
           <Hyperlink type="NextLink" href="/">
             <span className="font-semibold text-xl tracking-tight">
               guisantos.dev
@@ -49,7 +55,7 @@ export function Header() {
               href={link.href}
               className={`${getActiveLinkClass(
                 link.href,
-              )} inline-block font-semibold text-base px-4 py-2 leading-none border rounded text-foreground border-foreground hover:border-transparent hover:text-zinc-900 hover:bg-white transition-colors`}
+              )} inline-block font-semibold text-base px-4 py-2 leading-none text-foreground hover:text-secondary transition-colors`}
             >
               {link.label}
             </Hyperlink>
@@ -57,9 +63,9 @@ export function Header() {
         </div>
         <Menu as="div" className="relative inline-block text-left md:hidden">
           <div>
-            <Menu.Button className="inline-flex w-full justify-center rounded-md bg-foreground px-4 py-2 text-sm font-medium text-zinc-950 hover:bg-opacity-80">
+            <MenuButton className="inline-flex w-full justify-center rounded-md bg-muted px-4 py-2 text-sm font-medium text-secondary hover:bg-opacity-80">
               Menu
-            </Menu.Button>
+            </MenuButton>
           </div>
           <Transition
             as={Fragment}
@@ -70,27 +76,26 @@ export function Header() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-zinc-800 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <MenuItems className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-primary rounded-md bg-muted shadow-lg ring-opacity-5 focus:outline-none">
               <div className="p-1">
                 {links.map((link) => (
-                  <Menu.Item key={link.href}>
-                    {({active}) => (
+                  <MenuItem key={link.href}>
+                    {({close}) => (
                       <Hyperlink
+                        onClick={close}
                         type="NextLink"
                         href={link.href}
-                        className={`${
-                          active
-                            ? 'bg-zinc-900 text-foreground'
-                            : 'text-zinc-900'
-                        } group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-zinc-900 hover:text-foreground`}
+                        className={`${getActiveLinkClass(
+                          link.href,
+                        )} group flex w-full items-center rounded-md px-2 py-2 text-sm hover:bg-secondary hover:text-foreground`}
                       >
                         {link.label}
                       </Hyperlink>
                     )}
-                  </Menu.Item>
+                  </MenuItem>
                 ))}
               </div>
-            </Menu.Items>
+            </MenuItems>
           </Transition>
         </Menu>
       </nav>
