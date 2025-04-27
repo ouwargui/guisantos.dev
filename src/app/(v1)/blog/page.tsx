@@ -11,7 +11,7 @@ import {Resend} from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 type Props = {
-  searchParams: {[key: string]: string | string[] | undefined};
+  searchParams: Promise<{[key: string]: string | string[] | undefined}>;
 };
 
 const DEFAULT_POST_FIELDS: (keyof Post)[] = [
@@ -22,7 +22,7 @@ const DEFAULT_POST_FIELDS: (keyof Post)[] = [
 ];
 
 export default async function Blog({searchParams}: Props) {
-  const {search} = searchParams;
+  const {search} = await searchParams;
 
   const posts = search
     ? await searchPostsByName(search, DEFAULT_POST_FIELDS)

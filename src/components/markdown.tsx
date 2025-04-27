@@ -1,7 +1,7 @@
 'use client';
 
 import type {ReactNode} from 'react';
-import {ReactMarkdown} from 'react-markdown/lib/react-markdown';
+import ReactMarkdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
 import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {CopyToClipboard} from './copy-to-clipboard';
