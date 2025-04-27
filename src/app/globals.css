@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @utility accent {
   @apply text-orange-400 font-bold;
