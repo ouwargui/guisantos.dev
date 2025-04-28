@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 :root {
   --foreground: oklch(0.83 0.0018 247.84);

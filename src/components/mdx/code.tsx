@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import {toJsxRuntime} from 'hast-util-to-jsx-runtime';
 import {Fragment} from 'react';
 import {jsx, jsxs} from 'react/jsx-runtime';
@@ -12,6 +13,7 @@ interface BlockProps extends PropsWithTextChildren {
   inline: false;
   language: string;
   fileName?: string;
+  showLineNumbers?: boolean;
 }
 
 interface InlineProps extends PropsWithTextChildren {
@@ -38,6 +40,8 @@ async function BlockCode(props: BlockProps) {
     theme: 'tokyo-night',
   });
 
+  const showLineNumbers = props.showLineNumbers ?? true;
+
   const out = toJsxRuntime(html, {
     Fragment,
     jsx,
@@ -47,11 +51,13 @@ async function BlockCode(props: BlockProps) {
         return (
           <pre
             {...props}
-            className="p-2 with-line-numbers max-h-96 overflow-scroll"
+            className={clsx('p-2 max-h-96 overflow-scroll', {
+              'with-line-numbers': showLineNumbers,
+            })}
           />
         );
       },
-      code: (props) => <code {...props} />,
+      code: (props) => <code {...props} className="text-sm" />,
     },
   });
 
