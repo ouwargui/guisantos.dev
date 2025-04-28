@@ -1,4 +1,7 @@
 import {Code} from '@/components/mdx/code';
+import {Video} from '@/components/mdx/video';
+import {Hyperlink} from '@/components/hyperlink';
+import Image from 'next/image';
 
 export const metadata = {
   title: "Supercharging your Pressables in React Native",
@@ -45,7 +48,7 @@ Native Animated API if you prefer.
 
 To set up this project, I ran the following command:
 
-<Code language="bash">
+<Code language="bash" showShellSign>
 {[
   'bun create expo pressables --template blank-typescript',
   'cd pressables',
@@ -140,7 +143,185 @@ component provides, which is the opacity effect when the user presses the button
   });`}
 </Code>
 
+With the code above we created a custom <Code inline>{'<Pressable />'}</Code> component
+that has the same opacity effect as the <Code inline>{'<TouchableOpacity />'}</Code> component,
+check it out:
+
+<Video src="/posts/supercharging-your-pressables-in-react-native/opacity.mp4" />
+
 ## Pressable with scale
 
-This is one of my favorites
+This is one of my favorites effects, it gives a nice feedback to the user when they press
+the button, and it's very easy to implement. Let's cut to the chase and see the code:
 
+<Code language="tsx" fileName="app.tsx">
+  {`import {
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
+  } from "react-native";
+  import Animated, {
+    useAnimatedStyle,
+    useSharedValue,
+    withTiming,
+  } from "react-native-reanimated";
+
+  const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+  export default function App() {
+    const pressed = useSharedValue(false);
+
+    const animatedStyle = useAnimatedStyle(() => {
+      const scale = withTiming(pressed.value ? 0.92 : 1, {
+        duration: 100,
+      });
+
+      return {
+        transform: [{ scale }],
+        backgroundColor: "darkblue",
+        padding: 20,
+        borderRadius: 5,
+        width: 150,
+        justifyContent: "center",
+        alignItems: "center",
+      };
+    });
+
+    return (
+      <View style={styles.container}>
+        <AnimatedPressable
+          style={animatedStyle}
+          onPressIn={() => {
+            pressed.value = true;
+          }}
+          onPressOut={() => {
+            pressed.value = false;
+          }}
+        >
+          <Text style={styles.buttonText}>Pressable</Text>
+        </AnimatedPressable>
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      gap: 10,
+      justifyContent: "center",
+    },
+    buttonText: {
+      fontSize: 20,
+      color: 'white',
+      fontWeight: 'bold',
+    },
+  });
+`}
+</Code>
+
+And now the result:
+
+<Video src="/posts/supercharging-your-pressables-in-react-native/scale.mp4" />
+
+## Pressable with haptic feedback
+
+This is a very underused feature in React Native, but it's very easy to implement,
+specially with the help of the
+[Expo Haptics](https://docs.expo.dev/versions/latest/sdk/haptics/) library.
+
+Apple has a great article on best practices for haptic feedback in iOS apps,
+and I highly recommend you check it out:
+[Playing Haptics](https://developer.apple.com/design/human-interface-guidelines/playing-haptics).
+
+Unfortunately, I can't show you the haptic feedback on video, but you can
+try it out on your own device. So let's see the code, but first, make sure
+to install the Expo Haptics library:
+
+<Code language="bash" showShellSign>
+  {'bun expo install expo-haptics'}
+</Code>
+
+And now the code:
+
+<Code language="tsx" fileName="app.tsx">
+  {`import {
+    Pressable,
+    StyleSheet,
+    Text,
+    View,
+  } from "react-native";
+
+  export default function App() {
+    return (
+      <View style={styles.container}>
+        <Pressable
+          style={styles.button}
+          onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light)}
+        >
+          <Text style={styles.buttonText}>Light</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)}
+        >
+          <Text style={styles.buttonText}>Medium</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)}
+        >
+          <Text style={styles.buttonText}>Heavy</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Rigid)}
+        >
+          <Text style={styles.buttonText}>Rigid</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button}
+          onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Soft)}
+        >
+          <Text style={styles.buttonText}>Soft</Text>
+        </Pressable>
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      gap: 10,
+      justifyContent: "center",
+    },
+    button: {
+      backgroundColor: "lightblue",
+      padding: 10,
+      borderRadius: 5,
+      width: 150,
+      alignItems: "center",
+    },
+    buttonText: {
+      fontSize: 20,
+      color: "darkblue",
+      fontWeight: "bold",
+    },
+  });`}
+</Code>
+
+I really like using haptic feedback on iOS, it gives a nice touch to the app,
+and if you combine with long press, it can be a great way to show the user that
+they can do something else with the button, rewarding them with a nice feeling.
+
+## Conclusion
+
+This is some ways to supercharge your <Code inline>{'<Pressable />'}</Code> components
+in React Native, and I hope you found this post helpful.
+
+If you have any questions or suggestions, feel free to reach out to me, you can find
+my socials at the <Hyperlink href="/" className="anchor hover:anchor-hover accent">home page of my blog</Hyperlink>.
