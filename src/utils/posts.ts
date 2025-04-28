@@ -82,7 +82,7 @@ export async function searchPostsByName(
   const postName = Array.isArray(name) ? name[0] : name;
   const files = await fs.readdir(POSTS_DIRECTORY);
   const posts = files.map((filename) => {
-    const slug = filename.replace('.md', '');
+    const slug = filename.replace('.mdx', '');
     const post = getPostBySlug(slug, fields);
     if (post) {
       return post;
