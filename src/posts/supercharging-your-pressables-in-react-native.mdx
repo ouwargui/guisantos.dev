@@ -1,0 +1,146 @@
+import {Code} from '@/components/mdx/code';
+
+export const metadata = {
+  title: "Supercharging your Pressables in React Native",
+  excerpt:
+    "Learn how to customize Pressable components in React Native for better user experience.",
+  coverImage: "/assets/blog/hello-world/cover.jpg",
+  date: "2025-04-27T16:24:00.892Z",
+  timeToRead: 4,
+  author: {
+    name: "Guilherme Santos",
+  },
+  picture: "https://github.com/ouwargui.png",
+  ogImage: {
+    url: "/assets/blog/hello-world/cover.jpg",
+  },
+};
+
+If you've developed React Native applications before, you certainly used the
+<Code inline>{'<Button />'}</Code> component at some point and realized how
+limited it is, since the <Code inline>{'<Button />'}</Code> component uses the
+native style and doesn't allow for much customization.
+
+You might have turned to the <Code inline>{'<TouchableOpacity />'}</Code> or
+<Code inline>{'<TouchableHighlight />'}</Code> components to create buttons
+that look more like the ones you see in different apps. These components are
+more flexible and allow you to customize the look and feel of your buttons
+to match your app's design, they also provide a better user experience by
+giving users a visual feedback when they press the button.
+
+But then when React Native v0.63 was released, the <Code inline>{'<Pressable />'}</Code>
+component was introduced, and it's the recommended way to handle user interactions
+within your app. Although it improved the API for handling touch events, **it
+doesn't provide all the built-in styles and effects that the Touchables do**.
+
+You can read more about why the <Code inline>{'<Pressable />'}</Code> component was introduced
+on the [React Native v0.63 announcement blog post](https://reactnative.dev/blog/2020/07/06/version-0.63#pressable).
+
+## Setup project
+
+I'll be using [**Expo**](https://expo.dev) and
+[**React Native Reanimated**](https://docs.swmansion.com/react-native-reanimated/)
+to create the examples in this post, but you can translate the code to use the React
+Native Animated API if you prefer.
+
+To set up this project, I ran the following command:
+
+<Code language="bash">
+{[
+  'bun create expo pressables --template blank-typescript',
+  'cd pressables',
+  'bun expo install react-native-reanimated',
+  '',
+  'bun ios'
+].join('\n')}
+</Code>
+
+## Pressable with opacity
+
+Let's start by creating the same visual feedback that the <Code inline>{'<TouchableOpacity />'}</Code>
+component provides, which is the opacity effect when the user presses the button.
+
+<Code language="tsx" fileName="app.tsx">
+  {`import {
+    Pressable,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+  } from "react-native";
+  import Animated, {
+    useAnimatedStyle,
+    useSharedValue,
+    withTiming,
+  } from "react-native-reanimated";
+
+  const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+  export default function App() {
+    const pressed = useSharedValue(false);
+
+    const animatedStyle = useAnimatedStyle(() => {
+      const opacity = pressed.value
+        ? 0.2
+        : withTiming(1, {
+            duration: 200,
+          });
+
+      return {
+        opacity: opacity,
+        backgroundColor: "purple",
+        padding: 20,
+        borderRadius: 5,
+        width: 150,
+        justifyContent: "center",
+        alignItems: "center",
+      };
+    });
+
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={{
+            backgroundColor: "purple",
+            padding: 20,
+            borderRadius: 5,
+            width: 150,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text style={styles.buttonText}>Touchable</Text>
+        </TouchableOpacity>
+        <AnimatedPressable
+          style={animatedStyle}
+          onPressIn={() => {
+            pressed.value = true;
+          }}
+          onPressOut={() => {
+            pressed.value = false;
+          }}
+        >
+          <Text style={styles.buttonText}>Pressable</Text>
+        </AnimatedPressable>
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#fff",
+      alignItems: "center",
+      gap: 10,
+      justifyContent: "center",
+    },
+    buttonText: {
+      fontSize: 20,
+    },
+  });`}
+</Code>
+
+## Pressable with scale
+
+This is one of my favorites
+

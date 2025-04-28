@@ -17,6 +17,24 @@
   --color-muted: var(--muted);
 }
 
+@utility with-line-numbers {
+  code {
+    counter-reset: step;
+    counter-increment: step 0;
+  }
+
+  code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    color: var(--foreground);
+    width: 1rem;
+    margin-right: 1.5rem;
+    display: inline-block;
+    text-align: right;
+    color: var(--foreground);
+  }
+}
+
 @utility accent {
   @apply text-primary font-bold;
 }

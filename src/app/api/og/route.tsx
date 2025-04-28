@@ -53,7 +53,6 @@ export async function GET(request: Request) {
           style={{
             fontFamily: 'Red Hat Mono Bold',
             fontSize: '60px',
-            textAlign: 'justify',
           }}
         >
           {title}

@@ -1,6 +1,4 @@
 'use client';
-
-import clsx from 'clsx';
 import {useState} from 'react';
 
 type Props = {
@@ -21,51 +19,30 @@ export function CopyToClipboard(props: Props) {
   return (
     <button
       type="button"
-      className={clsx(
-        'group hover:bg-white rounded-md p-1 flex gap-2 items-center justify-center transition-all',
-        copied && 'bg-white cursor-default',
-      )}
+      className="text-primary cursor-pointer hover:text-secondary transition-colors"
       onClick={() => {
         handleCopy(String(props.content));
       }}
       disabled={copied}
       aria-label={copied ? 'Copied' : 'Copy to clipboard'}
     >
-      {copied ? (
-        <ClipboardCheckmarkIcon copied={copied} />
-      ) : (
-        <ClipboardIcon copied={copied} />
-      )}
-      <span
-        className={clsx(
-          'text-white group-hover:text-zinc-900 transition-all',
-          copied && 'text-zinc-900',
-        )}
-      >
-        {copied ? 'Copied!' : 'Copy'}
-      </span>
+      {copied ? <ClipboardCheckmarkIcon /> : <ClipboardIcon />}
     </button>
   );
 }
 
-type ClipboardIconProps = {
-  copied: boolean;
-};
-
-function ClipboardIcon(props: ClipboardIconProps) {
+function ClipboardIcon() {
   return (
     <svg
-      role="img"
-      aria-label="Copy to clipboard icon"
       xmlns="http://www.w3.org/2000/svg"
+      fill="none"
       viewBox="0 0 24 24"
-      strokeWidth="2"
+      strokeWidth={1.5}
       stroke="currentColor"
-      className={clsx(
-        'w-4 h-4 fill-black stroke-white group-hover:fill-white group-hover:stroke-zinc-900 transition-all',
-        props.copied && 'fill-white stroke-zinc-900',
-      )}
+      className="size-6"
+      aria-label="Clipboard icon"
     >
+      <title>Clipboard icon</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -75,21 +52,18 @@ function ClipboardIcon(props: ClipboardIconProps) {
   );
 }
 
-function ClipboardCheckmarkIcon(props: ClipboardIconProps) {
+function ClipboardCheckmarkIcon() {
   return (
     <svg
-      role="img"
-      aria-label="Content copied icon"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth="2"
+      strokeWidth={1.5}
       stroke="currentColor"
-      className={clsx(
-        'w-4 h-4 fill-black stroke-white group-hover:fill-white group-hover:stroke-zinc-900 transition-all',
-        props.copied && 'fill-white stroke-zinc-900',
-      )}
+      className="size-6"
+      aria-label="Checkmark icon"
     >
+      <title>Checkmark icon</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

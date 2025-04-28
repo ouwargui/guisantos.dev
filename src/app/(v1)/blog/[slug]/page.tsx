@@ -1,3 +1,4 @@
+import {ReadProgress} from '@/components/read-progress';
 import {getPostBySlug} from '@/utils/posts';
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
@@ -86,7 +87,8 @@ export default async function BlogPost(props: Props) {
   }
 
   return (
-    <main className="flex flex-col gap-16 flex-1 w-full md:max-w-screen-md lg:max-w-screen-lg p-8">
+    <main className="flex flex-col gap-10 flex-1 w-full md:max-w-screen-md lg:max-w-screen-lg p-8">
+      <ReadProgress />
       <header className="flex flex-col text-sm md:text-base w-full gap-1">
         <h1 className="text-2xl md:text-3xl font-bold text-foreground">
           {markdown.title}
@@ -102,7 +104,7 @@ export default async function BlogPost(props: Props) {
           <span>{markdown.timeToRead} min read</span>
         </div>
       </header>
-      <article className="w-full prose-headings:text-foreground prose prose-sm prose-p:text-justify md:prose-base !max-w-full prose-h1:text-center prose-strong:accent prose-a:accent prose-code:text-xs prose-code:md:text-sm prose-invert">
+      <article className="w-full !max-w-full flex flex-col gap-8">
         <markdown.content />
       </article>
     </main>

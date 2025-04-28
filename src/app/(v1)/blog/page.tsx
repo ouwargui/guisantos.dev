@@ -76,7 +76,7 @@ export default async function Blog({searchParams}: Props) {
           <h2 className="text-secondary font-semibold text-lg">
             Don&apos;t miss out!
           </h2>
-          <p className="text-foreground text-justify">
+          <p className="text-foreground">
             Sign up for my newsletter and I&apos;ll send you an email every time
             I publish a new article.
           </p>

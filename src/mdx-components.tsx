@@ -1,16 +1,32 @@
 import {CopyToClipboard} from '@/components/copy-to-clipboard';
 import {Hyperlink} from '@/components/hyperlink';
+import {Code} from '@/components/mdx/code';
 import type {MDXComponents} from 'mdx/types';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/prism';
-import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import Link from 'next/link';
+import {stringToKebabCase} from './utils/string';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
+    h2: ({children}) => {
+      const kebabCaseText = stringToKebabCase(children);
+      return (
+        <h2
+          id={kebabCaseText}
+          className="text-xl md:text-2xl font-bold text-foreground"
+        >
+          <Link href={`#${kebabCaseText}`}>{children}</Link>
+        </h2>
+      );
+    },
     a: ({children, ...props}) => (
       <Hyperlink {...props} type="anchor">
         {children}
       </Hyperlink>
     ),
+    p: ({children}) => (
+      <p className="text-base text-foreground leading-8">{children}</p>
+    ),
+    strong: ({children}) => <strong className="font-black">{children}</strong>,
     pre: ({children}) => (
       <pre className="overflow-visible">
         <div className="flex justify-between mb-2">
@@ -26,23 +42,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </pre>
     ),
-    code: ({node, inline, className, children, ...props}) => {
-      const match = /language-(\w+)/.exec(className ?? '');
-      return !inline && match ? (
-        <SyntaxHighlighter
-          {...props}
-          style={dracula}
-          language={match[1]}
-          showLineNumbers
-        >
-          {String(children).replace(/\n$/, '')}
-        </SyntaxHighlighter>
-      ) : (
-        <code {...props} className={className}>
-          {children}
-        </code>
-      );
-    },
+    code: Code,
     ...components,
   };
 }

@@ -36,7 +36,7 @@ export default async function Home() {
         </h2>
       </section>
       <section className="flex w-full gap-8 md:gap-8 justify-between items-center flex-col-reverse md:flex-row">
-        <div className="text-justify text-sm md:text-base lg:text-lg flex flex-col gap-8">
+        <div className="text-sm md:text-base lg:text-lg flex flex-col gap-8">
           <p>
             I&apos;m a Software Engineer at IBM. I have a bachelor&apos;s degree
             in Computer Science from the Universidade Anhembi Morumbi. I love to
@@ -48,35 +48,6 @@ export default async function Home() {
             source and doing some contributions. I&apos;ll be posting some of my
             projects here. Stay tuned! 🤓
           </p>
-          <div className="flex gap-4 font-bold justify-center items-center">
-            <Hyperlink
-              type="anchor"
-              href="https://github.com/ouwargui"
-              icon={
-                <GithubIcon className="w-6 h-6 text-foreground group-hover:opacity-80 transition-all duration-150" />
-              }
-            >
-              Github
-            </Hyperlink>
-            <Hyperlink
-              type="anchor"
-              href="https://twitter.com/eoqguih"
-              icon={
-                <XIcon className="w-6 h-6 fill-foreground group-hover:opacity-80 transition-all duration-150" />
-              }
-            >
-              Twitter
-            </Hyperlink>
-            <Hyperlink
-              type="anchor"
-              href="https://linkedin.com/in/guiksantos"
-              icon={
-                <LinkedinIcon className="w-6 h-6 text-foreground group-hover:opacity-80 transition-all duration-150" />
-              }
-            >
-              LinkedIn
-            </Hyperlink>
-          </div>
         </div>
         <div className="w-40 md:w-[80rem] aspect-square relative rounded-full overflow-hidden">
           <Image
@@ -87,6 +58,35 @@ export default async function Home() {
             priority
           />
         </div>
+      </section>
+      <section className="flex gap-4 font-bold justify-center items-center">
+        <Hyperlink
+          type="anchor"
+          href="https://github.com/ouwargui"
+          icon={
+            <GithubIcon className="w-6 h-6 text-foreground group-hover:opacity-80 transition-all duration-150" />
+          }
+        >
+          Github
+        </Hyperlink>
+        <Hyperlink
+          type="anchor"
+          href="https://twitter.com/eoqguih"
+          icon={
+            <XIcon className="w-6 h-6 fill-foreground group-hover:opacity-80 transition-all duration-150" />
+          }
+        >
+          Twitter
+        </Hyperlink>
+        <Hyperlink
+          type="anchor"
+          href="https://linkedin.com/in/guiksantos"
+          icon={
+            <LinkedinIcon className="w-6 h-6 text-foreground group-hover:opacity-80 transition-all duration-150" />
+          }
+        >
+          LinkedIn
+        </Hyperlink>
       </section>
       <section className="flex flex-col gap-4">
         <h2 className="text-xl md:text-2xl font-semibold">Projects</h2>
