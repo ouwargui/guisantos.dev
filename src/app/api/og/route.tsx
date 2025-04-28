@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import {ImageResponse} from 'next/og';
 
 export const runtime = 'edge';
@@ -35,14 +34,14 @@ export async function GET(request: Request) {
     return new ImageResponse(
       <div
         style={{
-          background: 'linear-gradient(to bottom, #27272a, #09090b)',
+          backgroundColor: '#0c0d11',
           width: '100%',
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'space-between',
-          color: 'white',
+          color: '#47a39f',
           fontFamily: 'Red Hat Mono Regular',
           fontSize: '20px',
           padding: '60px 100px',
@@ -63,6 +62,7 @@ export async function GET(request: Request) {
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
+            color: '#67fdf2',
           }}
         >
           <span>guisantos.dev</span>
