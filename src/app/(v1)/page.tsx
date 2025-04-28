@@ -38,9 +38,9 @@ export default async function Home() {
       <section className="flex w-full gap-8 md:gap-8 justify-between items-center flex-col-reverse md:flex-row">
         <div className="text-sm md:text-base lg:text-lg flex flex-col gap-8">
           <p>
-            I&apos;m a Software Engineer at IBM. I have a bachelor&apos;s degree
-            in Computer Science from the Universidade Anhembi Morumbi. I love to
-            play videogames, watch sports, and code.
+            I&apos;m a Software Engineer at Rocket Laywer. I have a
+            bachelor&apos;s degree in Computer Science from the Universidade
+            Anhembi Morumbi. I love to play videogames, watch sports, and code.
           </p>
           <p>
             I&apos;m a big fan of the React ecosystem and I&apos;m always trying
