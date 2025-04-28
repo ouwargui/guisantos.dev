@@ -57,8 +57,8 @@ async function BlockCode(props: BlockProps) {
 
   return (
     <div className="rounded overflow-hidden">
-      <div className="bg-muted flex justify-between py-2 px-4">
-        <span className="text-primary">{props.fileName ?? props.language}</span>
+      <div className="bg-muted flex justify-between items-center py-2 px-4 text-secondary text-sm">
+        <span>{props.fileName ?? props.language}</span>
         <CopyToClipboard content={props.children} />
       </div>
       {out}

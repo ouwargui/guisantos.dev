@@ -1,4 +1,4 @@
-import {Code} from '@/components/mdx/Code';
+import {Code} from '@/components/mdx/code';
 
 export const metadata = {
   title: "How to use multiple git accounts on the same machine",
@@ -33,15 +33,15 @@ The first step is to create a new SSH key for each account you want to use. To d
 {'$ ssh-keygen -t ed25519 -C "<account-email>"'}
 </Code>
 
-You will be asked to enter a file name for the key. You can enter any name you want to, but I strongly recommend that you use a name that you can remember later. For example, if you are creating a key for your personal account, you can use `id_personal` as the file name.
+You will be asked to enter a file name for the key. You can enter any name you want to, but I strongly recommend that you use a name that you can remember later. For example, if you are creating a key for your personal account, you can use <Code inline>{'id_personal'}</Code> as the file name.
 
-<Code language="txt">
+<Code language="bash">
 {'Enter file in which to save the key (/Users/you/.ssh/id_ed25519): id_personal'}
 </Code>
 
 After that, you will be asked to enter a passphrase. You can leave it blank if you want to, but I recommend that you enter a passphrase to make your key more secure.
 
-<Code language="txt">
+<Code language="bash">
 {[
   'Enter passphrase (empty for no passphrase): [Type a passphrase]',
   'Enter the same passphrase again: [Type passphrase again]'
@@ -71,7 +71,7 @@ If you already have an SSH config file, you can skip this step.
 
 Now open the file you just created and add the following content to it:
 
-<Code language="txt">
+<Code language="txt" fileName="~/.ssh/config">
 {`# Personal account
   Host github.com-personal # Replace personal with the name you want to use
     HostName github.com
@@ -102,13 +102,13 @@ Now we just need to create a git config file to tell git which account to use fo
 
 Now open the file you just created and add the following content to it:
 
-<Code language="txt">
+<Code language="txt" fileName="~/.config/git/config.personal">
 {`[user]
-  name       = <account-name>
-  email      = <account-email>
+    name  = <account-name>
+    email = <account-email>
 
-[hub]
-  host = github.com`}
+  [hub]
+    host = github.com`}
 </Code>
 
 Now we need to tell git to use this config file for the directory we are in. To do this, run the following command in your terminal:

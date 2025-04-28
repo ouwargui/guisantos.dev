@@ -1,4 +1,5 @@
 'use client';
+import clsx from 'clsx';
 import {useState} from 'react';
 
 type Props = {
@@ -19,19 +20,34 @@ export function CopyToClipboard(props: Props) {
   return (
     <button
       type="button"
-      className="text-primary cursor-pointer hover:text-secondary transition-colors"
+      className="grid size-8 place-items-center cursor-pointer bg-muted hover:bg-secondary/15 rounded transition-colors"
       onClick={() => {
         handleCopy(String(props.content));
       }}
       disabled={copied}
       aria-label={copied ? 'Copied' : 'Copy to clipboard'}
     >
-      {copied ? <ClipboardCheckmarkIcon /> : <ClipboardIcon />}
+      <ClipboardCheckmarkIcon
+        className={clsx(
+          'absolute size-5 transform transition-all',
+          copied
+            ? 'opacity-100 scale-100 animate-[show_1.25s_.15s_forwards]'
+            : 'opacity-0 scale-50 animate-[hide_1.25s_forwards]',
+        )}
+      />
+      <ClipboardIcon
+        className={clsx(
+          'absolute size-5 transform transition-all',
+          copied
+            ? 'opacity-0 scale-50 animate-[hide_1.25s_forwards]'
+            : 'opacity-100 scale-100 animate-[show_1.25s_.15s_forwards]',
+        )}
+      />
     </button>
   );
 }
 
-function ClipboardIcon() {
+function ClipboardIcon(props: {className?: string}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -39,10 +55,10 @@ function ClipboardIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className={props.className}
       aria-label="Clipboard icon"
     >
-      <title>Clipboard icon</title>
+      <title>Copy to the clipboard</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -52,7 +68,7 @@ function ClipboardIcon() {
   );
 }
 
-function ClipboardCheckmarkIcon() {
+function ClipboardCheckmarkIcon(props: {className?: string}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -60,10 +76,10 @@ function ClipboardCheckmarkIcon() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className={props.className}
       aria-label="Checkmark icon"
     >
-      <title>Checkmark icon</title>
+      <title>Code copied</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
