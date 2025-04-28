@@ -104,7 +104,7 @@ export default async function BlogPost(props: Props) {
           <span>{markdown.timeToRead} min read</span>
         </div>
       </header>
-      <article className="w-full !max-w-full flex flex-col gap-8">
+      <article className="w-full !max-w-full flex flex-col gap-4">
         <markdown.content />
       </article>
     </main>

@@ -14,6 +14,7 @@ interface BlockProps extends PropsWithTextChildren {
   language: string;
   fileName?: string;
   showLineNumbers?: boolean;
+  showShellSign?: boolean;
 }
 
 interface InlineProps extends PropsWithTextChildren {
@@ -41,6 +42,7 @@ async function BlockCode(props: BlockProps) {
   });
 
   const showLineNumbers = props.showLineNumbers ?? true;
+  const showShellSign = props.showShellSign ?? false;
 
   const out = toJsxRuntime(html, {
     Fragment,
@@ -52,7 +54,8 @@ async function BlockCode(props: BlockProps) {
           <pre
             {...props}
             className={clsx('p-2 max-h-96 overflow-scroll', {
-              'with-line-numbers': showLineNumbers,
+              'with-line-numbers': !showShellSign && showLineNumbers,
+              'with-shell': showShellSign,
             })}
           />
         );

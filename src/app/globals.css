@@ -16,6 +16,18 @@
   --color-muted: var(--muted);
 }
 
+@utility with-shell {
+  code .line:before {
+    content: "$";
+    color: var(--foreground);
+    width: 1rem;
+    margin-right: 1.5rem;
+    display: inline-block;
+    text-align: right;
+    color: var(--foreground);
+  }
+}
+
 @utility with-line-numbers {
   code {
     counter-reset: step;

@@ -12,7 +12,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       return (
         <h2
           id={kebabCaseText}
-          className="text-xl md:text-2xl font-bold text-foreground"
+          className="text-xl md:text-2xl font-bold text-foreground mt-6"
         >
           <Link href={`#${kebabCaseText}`}>{children}</Link>
         </h2>

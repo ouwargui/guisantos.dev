@@ -28,8 +28,6 @@ export function Hyperlink(props: Props) {
             'accent flex gap-2 items-center justify-center group'
           }
           href={props.href}
-          target="_blank"
-          rel="noreferrer"
         >
           {props.icon}
           <span className="anchor group-hover:anchor-hover">
@@ -59,10 +57,8 @@ export function Hyperlink(props: Props) {
     return (
       <a
         {...props}
-        target="_blank"
         className={props.className ?? 'anchor hover:anchor-hover accent'}
         href={props.href}
-        rel="noreferrer"
       >
         {props.children}
       </a>
