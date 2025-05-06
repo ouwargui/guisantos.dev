@@ -8,6 +8,10 @@
   --muted: oklch(0.27 0.0242 253.69);
 }
 
+html::selection {
+  background: var(--secondary);
+  color: var(--background);
+}
 @theme inline {
   --color-foreground: var(--foreground);
   --color-background: var(--background);
