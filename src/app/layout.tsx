@@ -4,7 +4,7 @@ import {SpeedInsights} from '@vercel/speed-insights/next';
 import type {Metadata, Viewport} from 'next';
 
 export const viewport: Viewport = {
-  themeColor: '27272a',
+  themeColor: 'oklch(0.16 0.0087 274.28)',
   colorScheme: 'dark',
 };
 
