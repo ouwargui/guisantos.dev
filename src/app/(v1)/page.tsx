@@ -30,13 +30,13 @@ export default async function Home() {
         <h1 className="text-3xl md:text-5xl font-semibold self-center text-primary">
           🙋🏻‍♂️ hello, world!
         </h1>
-        <h2 className="text-center text-sm md:text-base lg:text-lg">
+        <h2 className="text-center text-base lg:text-lg">
           I&apos;m <span className="accent">Guilherme</span>, a software
           engineer from Brazil.
         </h2>
       </section>
       <section className="flex w-full gap-8 md:gap-8 justify-between items-center flex-col-reverse md:flex-row">
-        <div className="text-sm md:text-base lg:text-lg flex flex-col gap-8">
+        <div className="text-base lg:text-lg flex flex-col gap-8">
           <p>
             I&apos;m a Software Engineer at Rocket Laywer. I have a
             bachelor&apos;s degree in Computer Science from the Universidade
