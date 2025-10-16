@@ -9,7 +9,7 @@ type Props = {
 
 export function Card({title, description, date}: Props) {
   return (
-    <div className="group relative hover:scale-[.98] transition-transform rounded-xl p-[1.5px] items-center flex justify-center">
+    <div className="group relative hover:scale-[.98] transition-transform rounded-xl p-[1.5px] items-center flex justify-center h-full">
       <div className="relative flex w-full h-full bg-muted flex-col gap-2 p-4 rounded-xl text-sm md:text-base">
         <h2 className="font-semibold text-secondary text-lg">{title}</h2>
         <span className="text-foreground">{description}</span>

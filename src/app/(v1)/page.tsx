@@ -8,16 +8,19 @@ import Image from 'next/image';
 
 const projects = [
   {
-    name: 'Personal Website',
-    description:
-      'Source code for this website! Made with NextJS app router and TailwindCSS',
-    href: 'https://github.com/ouwargui/guisantos.dev',
+    name: 'BetterAuthSwift',
+    description: 'A Swift client for Better Auth.',
+    href: 'https://github.com/ouwargui/BetterAuthSwift',
   },
   {
-    name: 'Sigma Audiobooks',
-    description:
-      'An Expo + React Native + trpc monorepo with a server and an app for audiobooks',
-    href: 'https://github.com/ouwargui/sigma-audiobooks-monorepo',
+    name: 'Schedy',
+    description: 'A macOS menubar app for managing your schedule.',
+    href: 'https://github.com/ouwargui/schedy',
+  },
+  {
+    name: 'This website',
+    description: 'Source code for this website.',
+    href: 'https://github.com/ouwargui/guisantos.dev',
   },
 ];
 
@@ -90,7 +93,7 @@ export default async function Home() {
       </section>
       <section className="flex flex-col gap-4">
         <h2 className="text-xl md:text-2xl font-semibold">Projects</h2>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 auto-rows-fr items-stretch">
           {projects.map((project, index) => (
             <Hyperlink
               type="anchor"
