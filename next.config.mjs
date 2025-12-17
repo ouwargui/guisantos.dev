@@ -12,15 +12,12 @@ const nextConfig = {
       },
     ],
   },
+  reactCompiler: {compilationMode: 'all'},
   experimental: {
-    reactCompiler: {compilationMode: 'all'},
     serverActions: {
       allowedForwardedHosts: ['localhost:3000'],
       allowedOrigins: ['localhost:3000'],
     },
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
 };
 

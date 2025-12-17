@@ -1,5 +1,6 @@
 import {NewsletterEmailTemplate} from '@/components/newsletter-email-template';
-import {prisma} from '@/lib/prisma';
+import {db} from '@/lib/db';
+import {newsletter} from '@/lib/schema';
 import type {NextRequest} from 'next/server';
 import {NextResponse} from 'next/server';
 import {Resend} from 'resend';
@@ -32,7 +33,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const newsletterSubscribers = await prisma.newsletter.findMany();
+    const newsletterSubscribers = await db.select().from(newsletter);
 
     if (!newsletterSubscribers.length) {
       return NextResponse.json({msg: 'No subscribers found'}, {status: 200});

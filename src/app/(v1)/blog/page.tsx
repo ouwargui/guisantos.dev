@@ -3,7 +3,8 @@ import {Hyperlink} from '@/components/hyperlink';
 import {NewsletterForm} from '@/components/newsletter-form';
 import {NewsletterWelcomeEmailTemplate} from '@/components/newsletter-welcome-email-template';
 import {Search} from '@/components/search';
-import {prisma} from '@/lib/prisma';
+import {db} from '@/lib/db';
+import {newsletter} from '@/lib/schema';
 import {getLastPosts, searchPostsByName} from '@/utils/posts';
 import type {Post} from '@/utils/posts';
 import {Resend} from 'resend';
@@ -34,15 +35,15 @@ export default async function Blog({searchParams}: Props) {
     const email = formData.get('email');
     if (!email) return;
 
-    await prisma.newsletter.create({
-      data: {
-        email: email.toString(),
-      },
+    const formattedEmail = email.toString().trim().toLowerCase();
+
+    await db.insert(newsletter).values({
+      email: formattedEmail,
     });
 
     await resend.emails.send({
       from: 'Guilherme Santos <me@guisantos.dev>',
-      to: email.toString(),
+      to: formattedEmail,
       subject: 'Welcome to my newsletter!',
       react: NewsletterWelcomeEmailTemplate(),
     });
