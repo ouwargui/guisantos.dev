@@ -27,6 +27,11 @@ function sortByDate(a: Post, b: Post): number {
   return dateB.getTime() - dateA.getTime();
 }
 
+export async function getAllSlugs(): Promise<string[]> {
+  const files = await fs.readdir(POSTS_DIRECTORY);
+  return files.map((filename) => filename.replace('.mdx', ''));
+}
+
 export async function getLastPosts(
   limit: number,
   fields: Array<keyof Post>,

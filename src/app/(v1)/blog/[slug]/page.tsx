@@ -1,5 +1,5 @@
 import {ReadProgress} from '@/components/read-progress';
-import {getPostBySlug} from '@/utils/posts';
+import {getAllSlugs, getLastPosts, getPostBySlug} from '@/utils/posts';
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 
@@ -69,6 +69,14 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       ],
     },
   };
+}
+
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
+
+  return slugs.map((slug) => ({
+    slug,
+  }));
 }
 
 export default async function BlogPost(props: Props) {
