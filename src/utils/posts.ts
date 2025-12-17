@@ -40,9 +40,8 @@ export async function getLastPosts(
   const posts = files.map((filename) => {
     const slug = filename.replace('.mdx', '');
     const post = getPostBySlug(slug, fields);
-    if (post) {
-      return post;
-    }
+
+    return post;
   });
 
   const allPosts = await Promise.all(posts);
@@ -89,9 +88,8 @@ export async function searchPostsByName(
   const posts = files.map((filename) => {
     const slug = filename.replace('.mdx', '');
     const post = getPostBySlug(slug, fields);
-    if (post) {
-      return post;
-    }
+
+    return post;
   });
 
   const allPosts = await Promise.all(posts);

@@ -1,9 +1,18 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 
 export function ReadProgress() {
   const [progress, setProgress] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    const scrollPx = document.documentElement.scrollTop;
+    const winHeightPx =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    const scrolled = (scrollPx / winHeightPx) * 100;
+    setProgress(scrolled);
+  }, []);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -14,16 +23,7 @@ export function ReadProgress() {
     return () => {
       abortController.abort();
     };
-  }, []);
-
-  function handleScroll() {
-    const scrollPx = document.documentElement.scrollTop;
-    const winHeightPx =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolled = (scrollPx / winHeightPx) * 100;
-    setProgress(scrolled);
-  }
+  }, [handleScroll]);
 
   return (
     <div className="fixed top-0 left-0 w-full h-1 bg-background z-10">

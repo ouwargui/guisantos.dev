@@ -1,8 +1,8 @@
+import type {MDXComponents} from 'mdx/types';
+import Link from 'next/link';
 import {CopyToClipboard} from '@/components/copy-to-clipboard';
 import {Hyperlink} from '@/components/hyperlink';
 import {Code} from '@/components/mdx/code';
-import type {MDXComponents} from 'mdx/types';
-import Link from 'next/link';
 import {stringToKebabCase} from './utils/string';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

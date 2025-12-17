@@ -1,6 +1,6 @@
+import {Red_Hat_Mono} from 'next/font/google';
 import {Footer} from '@/components/footer';
 import {Header} from '@/components/header';
-import {Red_Hat_Mono} from 'next/font/google';
 
 const redHatMono = Red_Hat_Mono({subsets: ['latin']});
 

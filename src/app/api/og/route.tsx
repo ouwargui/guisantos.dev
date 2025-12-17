@@ -66,6 +66,7 @@ export async function GET(request: Request) {
           }}
         >
           <span>guisantos.dev</span>
+          {/** biome-ignore lint/performance/noImgElement: need to use */}
           <img
             width="64"
             height="64"

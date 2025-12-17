@@ -1,7 +1,7 @@
-import {ReadProgress} from '@/components/read-progress';
-import {getAllSlugs, getLastPosts, getPostBySlug} from '@/utils/posts';
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
+import {ReadProgress} from '@/components/read-progress';
+import {getAllSlugs, getPostBySlug} from '@/utils/posts';
 
 type Props = {
   params: Promise<{

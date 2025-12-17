@@ -1,9 +1,9 @@
-import {NewsletterEmailTemplate} from '@/components/newsletter-email-template';
-import {db} from '@/lib/db';
-import {newsletter} from '@/lib/schema';
 import type {NextRequest} from 'next/server';
 import {NextResponse} from 'next/server';
 import {Resend} from 'resend';
+import {NewsletterEmailTemplate} from '@/components/newsletter-email-template';
+import {db} from '@/lib/db';
+import {newsletter} from '@/lib/schema';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

@@ -1,3 +1,4 @@
+import {Resend} from 'resend';
 import {Card} from '@/components/card';
 import {Hyperlink} from '@/components/hyperlink';
 import {NewsletterForm} from '@/components/newsletter-form';
@@ -5,9 +6,8 @@ import {NewsletterWelcomeEmailTemplate} from '@/components/newsletter-welcome-em
 import {Search} from '@/components/search';
 import {db} from '@/lib/db';
 import {newsletter} from '@/lib/schema';
-import {getLastPosts, searchPostsByName} from '@/utils/posts';
 import type {Post} from '@/utils/posts';
-import {Resend} from 'resend';
+import {getLastPosts, searchPostsByName} from '@/utils/posts';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
