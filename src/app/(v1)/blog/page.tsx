@@ -1,19 +1,15 @@
+import {Suspense} from 'react';
 import {Resend} from 'resend';
-import {Card} from '@/components/card';
-import {Hyperlink} from '@/components/hyperlink';
 import {NewsletterForm} from '@/components/newsletter-form';
 import {NewsletterWelcomeEmailTemplate} from '@/components/newsletter-welcome-email-template';
+import {PostsList} from '@/components/posts-list';
 import {Search} from '@/components/search';
 import {db} from '@/lib/db';
 import {newsletter} from '@/lib/schema';
-import type {Post} from '@/utils/posts';
-import {getLastPosts, searchPostsByName} from '@/utils/posts';
+import type {Post} from '@/utils/posts.server';
+import {getLastPosts} from '@/utils/posts.server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-type Props = {
-  searchParams: Promise<{[key: string]: string | string[] | undefined}>;
-};
 
 const DEFAULT_POST_FIELDS: (keyof Post)[] = [
   'excerpt',
@@ -22,12 +18,8 @@ const DEFAULT_POST_FIELDS: (keyof Post)[] = [
   'title',
 ];
 
-export default async function Blog({searchParams}: Props) {
-  const {search} = await searchParams;
-
-  const posts = search
-    ? await searchPostsByName(search, DEFAULT_POST_FIELDS)
-    : await getLastPosts(3, DEFAULT_POST_FIELDS);
+export default async function Blog() {
+  const posts = await getLastPosts(100, DEFAULT_POST_FIELDS);
 
   async function subscribeToNewsletter(formData: FormData) {
     'use server';
@@ -55,23 +47,15 @@ export default async function Blog({searchParams}: Props) {
         <h1 className="text-2xl md:text-3xl font-bold text-foreground">
           Blog posts
         </h1>
-        <Search />
+        <Suspense>
+          <Search />
+        </Suspense>
       </header>
       <main className="flex flex-col gap-20 md:gap-40">
         <section className="flex flex-col gap-4">
-          {posts.map((post) => (
-            <Hyperlink
-              type="NextLink"
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-            >
-              <Card
-                title={post.title}
-                description={post.excerpt}
-                date={post.date}
-              />
-            </Hyperlink>
-          ))}
+          <Suspense>
+            <PostsList posts={posts} />
+          </Suspense>
         </section>
         <section className="flex w-full md:w-1/2 bg-muted flex-col gap-4 p-4 rounded-xl text-sm md:text-base">
           <h2 className="text-secondary font-semibold text-lg">

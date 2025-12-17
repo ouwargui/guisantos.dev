@@ -4,7 +4,7 @@ import {Hyperlink} from '@/components/hyperlink';
 import {GithubIcon} from '@/icons/github';
 import {LinkedinIcon} from '@/icons/linkedin';
 import {XIcon} from '@/icons/x';
-import {getLastPosts} from '@/utils/posts';
+import {getLastPosts} from '@/utils/posts.server';
 
 const projects = [
   {
