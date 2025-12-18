@@ -38,16 +38,16 @@ export function Header() {
   };
 
   return (
-    <header className="w-full sticky z-10 top-0 backdrop-blur-lg">
+    <header className="w-full">
       <nav className="container mx-auto flex items-center justify-between p-6">
-        <div className="flex items-center flex-shrink-0 text-primary mr-6">
+        <div className="flex items-center shrink-0 text-primary mr-6">
           <Hyperlink type="NextLink" href="/">
             <span className="font-semibold text-xl tracking-tight">
               guisantos.dev
             </span>
           </Hyperlink>
         </div>
-        <div className="md:flex items-center gap-4 flex-shrink-0 text-foreground hidden">
+        <div className="md:flex items-center gap-4 shrink-0 text-foreground hidden">
           {links.map((link) => (
             <Hyperlink
               type="NextLink"
