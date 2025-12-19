@@ -35,7 +35,7 @@ export function Search() {
         />
       </svg>
       <input
-        className="flex w-full bg-transparent text-base border-none p-2 placeholder:text-zinc-400 outline-none"
+        className="flex w-full bg-transparent text-base border-none p-2 outline-none"
         type="search"
         placeholder="Search"
         onChange={(e) => handleSearch(e.target.value)}
