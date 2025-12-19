@@ -31,7 +31,6 @@ html::selection {
 @utility with-shell {
   code .line:before {
     content: "$";
-    color: var(--foreground);
     width: 1rem;
     margin-right: 1.5rem;
     display: inline-block;
@@ -48,7 +47,6 @@ html::selection {
   code .line::before {
     content: counter(step);
     counter-increment: step;
-    color: var(--foreground);
     width: 1rem;
     margin-right: 1.5rem;
     display: inline-block;

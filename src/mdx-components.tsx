@@ -43,6 +43,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </pre>
     ),
     code: Code,
+    ul: ({children}) => <ul className="list-disc list-inside text-base text-foreground">{children}</ul>,
     ...components,
   };
 }
