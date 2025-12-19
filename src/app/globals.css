@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --foreground: oklch(0.83 0.0018 247.84);
-  --background: oklch(0.16 0.0087 274.28);
-  --primary: oklch(0.91 0.1282 188.42);
-  --secondary: oklch(0.66 0.0877 191.36);
-  --muted: oklch(0.27 0.0242 253.69);
+  --foreground: oklch(82.918% 0.00187 248.994);
+  --background: oklch(15.984% 0.00864 274.307);
+  --primary: oklch(91.091% 0.12831 188.479);
+  --secondary: oklch(65.925% 0.08719 191.405);
+  --muted: oklch(26.918% 0.02427 253.731);
+
+  @media (prefers-color-scheme: light) {
+    --foreground: oklch(15.984% 0.00864 274.307);
+    --background: oklch(97.113% 0.00332 67.035);
+    --primary: oklch(65.925% 0.08719 191.405);
+    --secondary: oklch(26.918% 0.02427 253.731);
+    --muted: oklch(79.907% 0.02732 202.687);
+  }
 }
 
 html::selection {
@@ -28,7 +36,6 @@ html::selection {
     margin-right: 1.5rem;
     display: inline-block;
     text-align: right;
-    color: var(--foreground);
   }
 }
 
@@ -46,7 +53,6 @@ html::selection {
     margin-right: 1.5rem;
     display: inline-block;
     text-align: right;
-    color: var(--foreground);
   }
 }
 
@@ -55,7 +61,7 @@ html::selection {
 }
 
 @utility gradient {
-  @apply text-transparent font-bold bg-clip-text bg-gradient-to-r from-primary to-secondary;
+  @apply text-transparent font-bold bg-clip-text bg-linear-to-r from-primary to-secondary;
 }
 
 @utility anchor {

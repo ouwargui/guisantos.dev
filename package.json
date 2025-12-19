@@ -57,6 +57,8 @@
   "trustedDependencies": [
     "@biomejs/biome",
     "@vercel/speed-insights",
-    "sharp"
+    "esbuild",
+    "sharp",
+    "unrs-resolver"
   ]
 }
